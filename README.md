@@ -87,7 +87,7 @@ Replace this with your answer
 
 ### Question 5
 
-Using the following RSpec test as an example, explain the differences between describe and context:
+Using the following RSpec test as an example, explain the differences between `describe` and `context`:
 
 ```ruby
 describe Apartment do
@@ -106,13 +106,15 @@ describe Apartment do
         expect(apartment.tenants.count).to eq(3)
       end
     end
+  end
+end
 ```
 
-  Your answer:
-  ```text
+Your answer:
+```text
 
-  Replace this with your answer
-  ```
+Replace this with your answer
+```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
 
