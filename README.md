@@ -14,7 +14,6 @@ or the language specifier after them.
 
 ## Ruby Basics & Enumerables (meets Beauty and the Beast)
 
-
 ### Question 1
 
 Define a method called `offerRose`, which should take one argument named person.
@@ -74,9 +73,49 @@ Write your code here:
 # code here
 ```
 
-## SQL, Databases, and ActiveRecord (meets Aladdin)
+## TDD and RSpec
 
 ### Question 4
+
+Describe the differences between unit and functional testing. What type of testing is RSpec and why?
+
+Your answer:
+```text
+
+Replace this with your answer
+```
+
+### Question 5
+
+Using the following RSpec test as an example, explain the differences between describe and context:
+
+describe Apartment do
+  describe "#add_tenant" do
+    subject(:apartment) do
+      apartment = Apartment.create(num_beds: 3)
+      # we start with 2 tenants (3 bedrooms)
+      apartment.add_tenant("alice")
+      apartment.add_tenant("bob")
+      apartment # return the apartment
+    end
+
+    context "when there is room (<= the number of beds)" do
+      it "adds a tenant" do
+        apartment.add_tenant("Third tenant")
+        expect(apartment.tenants.count).to eq(3)
+      end
+    end
+
+
+  Your answer:
+  ```text
+
+  Replace this with your answer
+  ```
+
+## SQL, Databases, and ActiveRecord (meets Aladdin)
+
+### Question 6
 
 Describe what an ERD is, and why we create them for applications. Also give an
 example what the attributes and relationships might be for the following
@@ -92,7 +131,7 @@ Your answer:
 Replace this with your answer
 ```
 
-### Question 5
+### Question 7
 
 Describe what a schema is, and how we represent a one-to-many relationship in a
 SQL database. If you need an example, you can use: people and wishes
@@ -103,7 +142,7 @@ Your answer:
 Replace this with your answer
 ```
 
-### Question 6
+### Question 8
 
 **Assume:**
 1. Your database two working tables, `genies` and `lamps`.
@@ -126,49 +165,4 @@ Write code to do the following:
 Write your code here:
 ```ruby
 # code here
-```
-
-## Sinatra / REST (meets Mulan)
-
-### Question 7
-
-The Chinese Emperor needs an application to help him manage his warriors.
-<!-- LOLZ. YES. -->
-
-Describe to him what a RESTful route is, and list what the seven RESTful routes
-would look like for such an application.
-
-Your description:
-```
-Replace this with your answer
-```
-Your routes:
-```
-The ancestors have provided an example of one route; you do the other six!
-
-GET '/warriors/:id'
-  * This is the show route, which finds a warrior by ID, and displays information about that warrior.
-
-Replace this with your answer
-```
-
-### Question 8
-
-Assume:
-* Warrior is an ActiveRecord model, with a 'name' attribute.
-* You have a Sinatra `app.rb` (or similar file), that defines the following
-route:
-
-```ruby
-get '/warriors' do
-  @warriors = Warrior.all
-  erb :"warriors/index"
-end
-```
-
-Write what an example ERB file (aka view) might look like to list all the warriors:
-
-Write your code here (**NOTE: syntax highlighting doesn't work for ERB in markdown files, so ignore the colors!**):
-```html
-<!-- code here -->
 ```
