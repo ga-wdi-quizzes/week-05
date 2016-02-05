@@ -89,6 +89,7 @@ Replace this with your answer
 
 Using the following RSpec test as an example, explain the differences between describe and context:
 
+```ruby
 describe Apartment do
   describe "#add_tenant" do
     subject(:apartment) do
@@ -105,7 +106,7 @@ describe Apartment do
         expect(apartment.tenants.count).to eq(3)
       end
     end
-
+```
 
   Your answer:
   ```text
