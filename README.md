@@ -51,7 +51,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-belle = town[:residents][1]
+town[:residents] - ["Belle"]
+town[:castle][:guests] << "Belle" # not sure if you wanted me to save belle to a variable and then remove and re-add her, but this works!
 ```
 
 ### Question 3
@@ -73,7 +74,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}."
+end
 ```
 
 ## TDD and RSpec
