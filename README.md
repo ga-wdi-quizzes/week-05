@@ -50,7 +50,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+belle = town[:residents].delete("Belle")
+town[:castle][:guests] << belle
 ```
 
 ### Question 3
