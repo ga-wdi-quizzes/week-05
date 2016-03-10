@@ -24,7 +24,10 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
-# code here
+def offer_rose person
+  puts "Would you take this rose, #{person}, in exchange for giving an old beggar woman shelter from the bitter cold?"
+end
+offer_rose "young prince"
 ```
 
 ### Question 2
@@ -47,7 +50,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+belle = town[:residents].delete "Belle"
+town[:castle][:guests].push(belle)
 ```
 
 ### Question 3
@@ -69,7 +73,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -80,7 +86,10 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
-Replace this with your answer
+Unit testing checks whether a specific method has a specific output.
+Functional testing checks whether a program as a specific functionality, which may involve multiple methods.
+RSpec is unit testing because it tests the specific methods of specific objects.
+Specific specific specific.
 ```
 
 ### Question 5
@@ -110,7 +119,8 @@ end
 
 Your answer:
 ```text
-Replace this with your answer
+"Describe" tells you what unit (that is: object or method) is being tested.
+"Context" tells you under what conditions it is being tested.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -124,11 +134,32 @@ entities. You do **not** need to actually draw an ERD.
 * Genie
 * Lamp
 * Person
-* Pet
+* Wish
 
 Your answer:
 ```
-Replace this with your answer
+An ERD (Entity Relationship Diagram) shows how all records in a database relate,
+and what attributes they have. That is: how the tables in a database refer to
+each other, and what columns those tables may have.
+
+Genie
+  - wishes_left
+  - color
+  - has_one :lamp
+Lamp
+  - genie_id
+  - metal
+  - belongs_to :genie
+  - has_many :wishes
+Person
+  - name
+  - has_many :wishes
+Wish
+  - person_id
+  - genie_id
+  - contents
+  - belongs_to :lamp
+  - belongs_to :person
 ```
 
 ### Question 7
@@ -139,7 +170,13 @@ SQL database. If you need an example, you can use: genie and wishes
 
 Your answer:
 ```
-Replace this with your answer
+Schema define what tables should exist in a database, and what columns those tables should have.
+
+- genie
+  - name
+- wish
+  - genie_id
+  - contents
 ```
 
 ### Question 8
@@ -147,20 +184,29 @@ Replace this with your answer
 **Assume:**
 1. Your database already has two working tables, `genies` and `lamps`.
 2. You already have a working connection to the database for ActiveRecord.
-3. You already have active record models defined for `Genie` and `Lamp`, and the
-relationships between the two are set up in Active Record.
+3. You already have active record models defined for `Genie` and `Lamp`, which have defined that a lamp has one genie, and a genie belongs to a lamp.
 4. Lamps have one property, `wishes_remaining`, and genies have one property, `name`.
 
 Write code to do the following:
 
-1. Create a lamp with 3 wishes remaining and a genie named 'Genie'
-2. Create a relationship between 'Genie' and the lamp.
-3. Update the lamp so it only has one wish left.
+1. Create a genie named 'Genie'.
+2. Create a lamp with 3 wishes remaining.
+3. Update the lamp so it belongs to Genie
+4. Update the lamp so it only has one wish left.
   * Oh no... Jafar trapped Aladdin! Thankfully he's wished to become a genie himself!
-4. Create a new Genie named 'Jafar' and put him in a new lamp with 3 wishes left.
-5. Free the good Genie by setting his lamp to `nil`
+5. Create a new genie named 'Jafar'.
+6. Create a new lamp with 3 wishes left.
+7. Put Jafar in the new lamp.
+8. Free the good Genie by setting his lamp to `nil`.
 
 Write your code here:
 ```ruby
-# code here
+genie = Genie.create(name: "Genie")
+lamp = Lamp.create(wishes_remianing: 3)
+lamp.update(genie: genie)
+lamp.update(wishes_remaining: 1)
+jafar = Genie.create(name: "Jafar")
+new_lamp = Lamp.create(wishes_remaining: 3)
+new_lamp.update(genie: jafar)
+genie.update(lamp: nil)
 ```
