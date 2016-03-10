@@ -16,12 +16,11 @@ or the language specifier after them.
 
 ### Question 1
 
-Define a method called `offerRose`, which should take one argument named person.
+Define a method called `offer_rose`, which should take one argument named `person`.
 
-When called, the method should `puts`, "Would you take this rose and help out
-an old beggar, X?", where X is the person passed into the method.
+When called the method should `puts` "Would you take this rose, `person`, in exchange for giving an old beggar woman shelter from the bitter cold?"
 
-Demonstrate calling the method with an argument of "young prince".
+Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
@@ -81,7 +80,6 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
-
 Replace this with your answer
 ```
 
@@ -112,7 +110,6 @@ end
 
 Your answer:
 ```text
-
 Replace this with your answer
 ```
 
@@ -121,9 +118,9 @@ Replace this with your answer
 ### Question 6
 
 Describe what an ERD is, and why we create them for applications. Also give an
-example what the attributes and relationships might be for the following
-entities (no need to draw an ERD):
-<!-- Maybe clarify whether they're meant to give relationships between all four entities or... -->
+example of what the attributes and relationships might be for the following
+entities. You do **not** need to actually draw an ERD.
+
 * Genie
 * Lamp
 * Person
@@ -137,7 +134,7 @@ Replace this with your answer
 ### Question 7
 
 Describe what a schema is, and how we represent a one-to-many relationship in a
-SQL database. If you need an example, you can use: people and wishes
+SQL database. If you need an example, you can use: genie and wishes
 (one-to-many).
 
 Your answer:
@@ -148,11 +145,10 @@ Replace this with your answer
 ### Question 8
 
 **Assume:**
-1. Your database two working tables, `genies` and `lamps`.
-2. You have a working connection to the database for ActiveRecord.
-3. You have active record models defined for `Genie` and `Lamp`, and the
+1. Your database already has two working tables, `genies` and `lamps`.
+2. You already have a working connection to the database for ActiveRecord.
+3. You already have active record models defined for `Genie` and `Lamp`, and the
 relationships between the two are set up in Active Record.
-<!-- Do we want to specifiy what kind of relationship they have, in case some students aren't familiar with the mythology...? -->
 4. Lamps have one property, `wishes_remaining`, and genies have one property, `name`.
 
 Write code to do the following:
@@ -160,10 +156,9 @@ Write code to do the following:
 1. Create a lamp with 3 wishes remaining and a genie named 'Genie'
 2. Create a relationship between 'Genie' and the lamp.
 3. Update the lamp so it only has one wish left.
-  * Oh no... Jafar has Aladdin! Thankfully he's wished to become a genie himself!
+  * Oh no... Jafar trapped Aladdin! Thankfully he's wished to become a genie himself!
 4. Create a new Genie named 'Jafar' and put him in a new lamp with 3 wishes left.
 5. Free the good Genie by setting his lamp to `nil`
-
 
 Write your code here:
 ```ruby
