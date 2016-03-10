@@ -73,7 +73,7 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each {|friend| puts "Belle is friends with #{friend}"}
 ```
 
 ## TDD and RSpec
