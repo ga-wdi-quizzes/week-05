@@ -159,7 +159,9 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is a SQL file that creates the tables in our databases.
+
+Using the examples of people to wishes, one-to-many describes a typical relationship found between two entities. For example, one person has many wishes. In writing the schema.sql file, one of the attributes for the wishes would be person_id INT to connect the wishes to the appropriate person. Furthermore, in the person.rb file, one would write has_many :wishes and in the wish.rb file one would write belongs_to :person.
 ```
 
 ### Question 8
