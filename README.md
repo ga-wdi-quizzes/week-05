@@ -119,8 +119,9 @@ end
 
 Your answer:
 ```text
+`Describe` is used to test the general functionality of a method/describe how the method operates. In the example above, the test is showing that `add_tenant` is supposed to add the name of the tenant to the apartment that is passed in as an argument.
 
-Replace this with your answer
+`Context` is used when testing a specific condition of a method. In the example above, `context` is used to test that a tenant can successfully be added under the condition that the number of beds is greater than or equal to the amount of people.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
