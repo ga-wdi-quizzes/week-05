@@ -25,7 +25,14 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+
+def offerRose person
+  puts "Would you take this rose and help out
+  an old beggar, #{person}?"
+end
+
+offerRose("young prince")
+
 ```
 
 ### Question 2
@@ -48,7 +55,11 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+
+  town[:residents].delete("Belle")
+
+  town[:castle][:guests].push("Belle")
+
 ```
 
 ### Question 3
@@ -70,7 +81,11 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
+
 ```
 
 ## TDD and RSpec
@@ -82,7 +97,12 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit testing is when you write code to verify each function/method of your code does what it is intended to do.
+
+Functional testing is more holistic to ensure the overall experience is achieving the intended desires and that users can do it in an easy and intuitive way.
+
+RSpec is unit testing because you create specific cases to test specific code behavior of your methods.
+
 ```
 
 ### Question 5
@@ -113,7 +133,8 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+The Context scenarios are adding more detailed tests to the broader Describe test.  Since there is a restriction of 3 bedrooms, it makes sense to highlight adding a "third tenant".
+
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +152,10 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+Entity relationship diagrams show the relationships of tables, column, and rows in a database.  It's the same idea as pseudo coding, is basically a rough draft, and helps you better organize your thoughts and get it down on paper before starting to implement.  
+
+A person might own a lamp which contains a genie which grants the person a wish of having a pet.
+
 ```
 
 ### Question 7
@@ -142,7 +166,12 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+Schema is the structure of a table and how the data is organized in rows and columns.  Schema is basically the blueprint of a table or db.
+
+We define associations of classes within the model (belong_to, has_many).  Wishes could "belong_to" people and people could "have_many" wishes.
+
+"People" table could have columns "name" and "ID" while the wishes tables has "wish" "ID" and "people_id".  people.id would equal wishes.people_id in order to select all wishes that belong to a single person.
+
 ```
 
 ### Question 8
@@ -167,5 +196,21 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+
+three_wish_lamp = Lamps.new(3)
+Genie = Genie.new("Genie")
+
+class Lamps
+  has_many :genie
+end
+
+class Genie
+  belongs_to :lamps
+
+three_wish_lamp.wishes_remaining = 1
+
+Jafar = Genie.new("Jafar")
+
+three_wish_lamp = nil
+
 ```
