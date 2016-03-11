@@ -1,16 +1,5 @@
 # Week 05
 
-## Instructions
-
-1. Fork this repo
-2. Clone your fork
-3. Fill in your answers by writing in the appropriate area, or placing an 'x' in
-the square brackets (for multiple-choice questions).
-4. Add/Commit/Push your changes to Github.
-5. Open a pull request.
-
-**Note**: only place your answer between backticks. Don't modify the backticks,
-or the language specifier after them.
 
 ## Ruby Basics & Enumerables (meets Beauty and the Beast)
 
@@ -25,7 +14,13 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose (person)
+  puts "Would you take this rose and help out
+  an old beggar, #{person}?"
+end
+
+offerRose("young prince")
+
 ```
 
 ### Question 2
@@ -48,7 +43,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+belle = town[:residents].delete "Belle"
+town[:caslte][:guests].push belle
 ```
 
 ### Question 3
@@ -70,7 +66,10 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with {#{friend}}"
+end
+
 ```
 
 ## TDD and RSpec
@@ -81,8 +80,7 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
-
-Replace this with your answer
+Unit tests check the smallest level or one method of code. Functional tests have a wider focus, such as testing to see if a sign-in form works. RSpec is a testing framework for Ruby that does Unit tests.
 ```
 
 ### Question 5
@@ -112,8 +110,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+Context and describe do the exact same thing. The only reason there are two words to describe the exact same thing is for readability. Describe can be used to talk about specific objects or methods, and context can be used to describe the context.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +128,28 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD stands for Entity-Relationship Diagram. It describes the relationship between data in a database table.
+
+Genie
+ - name
+ - has_many lamps
+
+ Lamp
+ - has_one genie
+ - genie id
+
+ ------------
+ Person
+ -name
+ -age
+ - has_many pets
+
+ Pet
+ -name
+ - has_one person
+ - person id
+
+
 ```
 
 ### Question 7
@@ -142,7 +160,15 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is a container for all the objects inside a table, like the rows and columns. A one-to-many relationship is when you have many instances that belong to one instance. For example:
+
+wishes
+- has_one person
+- type_of_wish
+
+people
+- has_many wishes
+- wish ID
 ```
 
 ### Question 8
@@ -158,6 +184,7 @@ relationships between the two are set up in Active Record.
 Write code to do the following:
 
 1. Create a lamp with 3 wishes remaining and a genie named 'Genie'
+
 2. Create a relationship between 'Genie' and the lamp.
 3. Update the lamp so it only has one wish left.
   * Oh no... Jafar has Aladdin! Thankfully he's wished to become a genie himself!
@@ -167,5 +194,13 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+1. genie = Genie.create(name: "Genie")
+   lamp = Lamp.create(wishes_remaining: 3)
+2. lamp.update(genie:genie)
+3. lamp.update(wishes_remaining: 1)
+4. jafar = Genie.create(name: "Jafar")
+  jafar_lamp= Lamp.create(wishes_remaining:3)
+  jafar_lamp.update(genie:jafar)
+5. genie.update(lamp:nil)
+
 ```
