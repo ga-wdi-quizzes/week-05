@@ -84,8 +84,9 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
+Unit testing tests individual methods of your code. Use use unit tests to make sure every thing works in small steps. Functional testing tests larger main functions of your code, like actions a user might take.
 
-Replace this with your answer
+RSpec is a framework used for unit testing. We use 'describe' 'context' blocks for testing every aspect of every method of our code.
 ```
 
 ### Question 5
