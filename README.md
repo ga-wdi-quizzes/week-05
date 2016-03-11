@@ -58,7 +58,7 @@ Write your code here:
 
   town[:residents].delete("Belle")
 
-  town[:castle][:guests] = "Belle"
+  town[:castle][:guests].push("Belle")
 
 ```
 
@@ -99,7 +99,9 @@ Your answer:
 
 Unit testing is when you write code to verify each function/method of your code does what it is intended to do.
 
-Functional testing is more holistic to ensure the overall experience is achieving the intended desires and that users can do it in an easy and intuitive.
+Functional testing is more holistic to ensure the overall experience is achieving the intended desires and that users can do it in an easy and intuitive way.
+
+RSpec is unit testing because you create specific cases to test specific code behavior of your methods.
 
 ```
 
@@ -152,7 +154,7 @@ Your answer:
 ```
 Entity relationship diagrams show the relationships of tables, column, and rows in a database.  It's the same idea as pseudo coding, is basically a rough draft, and helps you better organize your thoughts and get it down on paper before starting to implement.  
 
-A person might own a lamp which contains a geenie which grants the person a wish of having a pet.
+A person might own a lamp which contains a genie which grants the person a wish of having a pet.
 
 ```
 
@@ -164,9 +166,11 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Schema is the structure of a table and how the data is organized in rows and columns.
+Schema is the structure of a table and how the data is organized in rows and columns.  Schema is basically the blueprint of a table or db.
 
 We define associations of classes within the model (belong_to, has_many).  Wishes could "belong_to" people and people could "have_many" wishes.
+
+"People" table could have columns "name" and "ID" while the wishes tables has "wish" "ID" and "people_id".  people.id would equal wishes.people_id in order to select all wishes that belong to a single person.
 
 ```
 
@@ -193,12 +197,9 @@ Write code to do the following:
 Write your code here:
 ```ruby
 
-1)
 three_wish_lamp = Lamps.new(3)
 Genie = Genie.new("Genie")
 
-
-2)
 class Lamps
   has_many :genie
 end
@@ -206,14 +207,10 @@ end
 class Genie
   belongs_to :lamps
 
-3)
 three_wish_lamp.wishes_remaining = 1
 
-4)
 Jafar = Genie.new("Jafar")
 
-
-5)
 three_wish_lamp = nil
 
 ```
