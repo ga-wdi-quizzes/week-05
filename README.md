@@ -171,7 +171,7 @@ Using the examples of people to wishes, one-to-many describes a typical relation
 2. You have a working connection to the database for ActiveRecord.
 3. You have active record models defined for `Genie` and `Lamp`, and the
 relationships between the two are set up in Active Record.
-<!-- Do we want to specifiy what kind of relationship they have, in case some students aren't familiar with the mythology...? -->
+<!-- Do we want to specify what kind of relationship they have, in case some students aren't familiar with the mythology...? -->
 4. Lamps have one property, `wishes_remaining`, and genies have one property, `name`.
 
 Write code to do the following:
@@ -186,5 +186,11 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+genie = Genie.create(name: "Genie")
+genie.lamps.create(wishes_remaining: 3)
+lamp_good = Genie.find_by(name: "Genie").lamps
+lamp_good.update(wishes_remaining: 1)
+jafar = Genie.create(name: "Jafar")
+jafar.lamps.create(wishes_remaining: 3)
+lamp_good.update(wishes_remaining: nil)
 ```
