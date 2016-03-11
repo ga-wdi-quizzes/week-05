@@ -115,8 +115,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+describe and context are basically the same but 'describe' is used to introduce new objects or methods (i.e, Apartment and add_tenant) whereas 'context' provides the circumstances prior to performing a test.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
