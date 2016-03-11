@@ -87,8 +87,9 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
-
-Replace this with your answer
+Unit Tests- testing on the 'smallest level', such as an individual method in a class, with all the dependencies mocked up.
+Functional Tests- broader tests of the functionality of a larger system; testing many methods at once.
+RSpec is a type of unit testing because--as the definition of unit testing suggests--it allows us to test even the smallest aspect of our code, such as ensuring that an argument in a method is not nil or is a capitalized string.
 ```
 
 ### Question 5
