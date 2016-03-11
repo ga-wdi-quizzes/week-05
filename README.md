@@ -173,8 +173,10 @@ Your answer:
 Schema define what tables should exist in a database, and what columns those tables should have.
 
 - genie
+  - primary key
   - name
 - wish
+  - primary key
   - genie_id
   - contents
 ```
