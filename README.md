@@ -25,7 +25,15 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+Def offerRose(person)
+puts "Would you take this rose and help out
+an old beggar, #{person}"
+end
+
+
+offerRose(young prince)
+or
+offerRose = young prince
 ```
 
 ### Question 2
@@ -48,7 +56,9 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town.residents.delete_at(1)
+castle.residents.push("Belle")
+
 ```
 
 ### Question 3
@@ -70,7 +80,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with" [:friend]
+end
 ```
 
 ## TDD and RSpec
@@ -81,8 +93,13 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
+Unit testing check the small blocks of code to make sure that input get the specific results you want. With unit testing you check the design, architecture, maintainability and fewer bugs. The tests are individual methods are not intended to be longer than 5 lines.  Unit tests are run before functional tests.
 
-Replace this with your answer
+Functional tests look at the bigger picture and have a wider focus. These tests are for Functionalities on sites such as the specific view based on permission level, making sure forms and sign ins work.
+
+RSpec is a unit test that is a testing framework for Ruby. It is supposed to makes writing tests much more simple for developers. You write the test before you write your actual code to make sure you get the specific results that you want.
+
+It is important bc it helps you write specific codes to get specific results you are intending.
 ```
 
 ### Question 5
@@ -112,8 +129,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+context and describe are literally the same thing. The reason to use both is to make the test more readable. Both describe and context are testing to say there was rooms/beds available for tenants.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +147,24 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+Entity Relationship Diagram (ERD) is a tool used to visual the relationships of
+****items****
+It also describes the data relating to the major entities that will exist in the programs. The arrows, circles and other characters are keys to show the type of relationships.
+
+Using the person as the one-to-many example:
+                  ___________
+                  | Person  |
+                  -----------
+                  |        |      
+               friends   posseses
+                with        &
+                PET       rubs     
+                          LAMP  --------> GENIE
+                                      Lives in a lamp & grants 3 wishes to person who rubs it's lamp
+
+
+Genie lives in lamp
+grants wishes to person
 ```
 
 ### Question 7
@@ -142,7 +175,23 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is used in databases to show the databases information. It gives information such as each tables column name their data type and any constraints, or rules, for the columns.
+
+one to many: An entity that has many relationships
+
+CREATE TABLE wisher (
+  id SERIAL PRIMARY KEY,
+  name TEXT,
+  current city TEXT,
+  age INTEGER
+);
+
+CREATE TABLE wishes (
+  id SERIAL PRIMARY KEY,
+  wish number INTEGER
+  wish TEXT
+  wisher_id INTEGER
+);
 ```
 
 ### Question 8
@@ -167,5 +216,31 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+1.
+genie = Genie.create(name: "Genie")
+genie_lamp = Lamp.create(wishes_remaining: "3")
+
+2.
+class Lamp < ActiveRecord::Base
+  has_many :genies
+end
+
+class Genie < ActiveRecord::Base
+  belongs_to :lamp
+end
+
+3.
+genie_lamp.wishes_remaining
+genie_lamp.wishes_remaining = "1"
+genie_lamp.save
+
+4.
+jafar = Genie.new(name: "Jafar")
+jafar.save
+
+jafar_lamp = Lamp.new(wishes_remaining: "3")
+jafar_lamp.save
+
+5.
+Lamp.destroy_all
 ```
