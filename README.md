@@ -26,7 +26,7 @@ Demonstrate calling the method with an argument of "young prince".
 Write your code here:
 ```ruby
 def offerRose(person)
-  puts "Would you take this rose and help out an old beggar #{person}?"
+  puts "Would you take this rose and help out an old beggar, #{person}?"
 end
 
 offerRose("young prince")
@@ -85,8 +85,7 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
-
-Replace this with your answer
+Unit testing is beneficial for developers while coding whereas functional testing is more user focused, RSpec is considered unit testing.
 ```
 
 ### Question 5
