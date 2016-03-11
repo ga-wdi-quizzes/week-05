@@ -131,7 +131,8 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+The Context scenarios are adding more detailed tests to the broader Describe test.  Since there is a restriction of 3 bedrooms, it makes sense to highlight adding a "third tenant".
+
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -149,7 +150,10 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+Entity relationship diagrams show the relationships of tables, column, and rows in a database.  It's the same idea as pseudo coding, is basically a rough draft, and helps you better organize your thoughts and get it down on paper before starting to implement.  
+
+A person might own a lamp which contains a geenie which grants the person a wish of having a pet.
+
 ```
 
 ### Question 7
@@ -160,7 +164,10 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+Schema is the structure of a table and how the data is organized in rows and columns.
+
+We define associations of classes within the model (belong_to, has_many).  Wishes could "belong_to" people and people could "have_many" wishes.
+
 ```
 
 ### Question 8
@@ -185,5 +192,28 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+
+1)
+three_wish_lamp = Lamps.new(3)
+Genie = Genie.new("Genie")
+
+
+2)
+class Lamps
+  has_many :genie
+end
+
+class Genie
+  belongs_to :lamps
+
+3)
+three_wish_lamp.wishes_remaining = 1
+
+4)
+Jafar = Genie.new("Jafar")
+
+
+5)
+three_wish_lamp = nil
+
 ```
