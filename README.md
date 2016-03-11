@@ -85,7 +85,7 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
-Unit testing is beneficial for developers while coding whereas functional testing is more user focused, RSpec is considered unit testing.
+Unit testing is beneficial for developers while coding because it's designed to test small portions of code whereas functional tests have a wider focus and may be more user specific, like confirming a form works. RSpec is considered unit testing.
 ```
 
 ### Question 5
