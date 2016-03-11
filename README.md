@@ -139,7 +139,16 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+ERD stands for 'Entity Relationship Diagram' and it is a tool that we use to visual and describe the data as it relates to the major entities that exist in our programs. Visually, an ERD consists of multiple entities that contain attributes and are connected to one another depending on relationship and dependency. These ERD's do NOT contain methods, as we keep the data separate from the behavior.
+
+Example:
+Person :name, :age, :gender
+The entity Person is connected to the entities: Lamp and Pet.
+  Lamp :color, :weight, :style
+  Pet :name, :age, :gender, :species
+The entity Lamp is connected to the entity Genie.
+Genie :name, :age, :gender, :color, :special_powers
+
 ```
 
 ### Question 7
