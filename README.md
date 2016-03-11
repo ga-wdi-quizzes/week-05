@@ -25,7 +25,10 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose person
+  puts "Would you take this rose and help out an old beggar, #{person}?"
+end
+offerRose "young prince"
 ```
 
 ### Question 2
@@ -48,7 +51,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town[:residents] - ["Belle"]
+town[:castle][:guests] << "Belle" # not sure if you wanted me to save belle to a variable and then remove and re-add her, but this works!
 ```
 
 ### Question 3
@@ -70,7 +74,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}."
+end
 ```
 
 ## TDD and RSpec
@@ -81,8 +87,9 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
-
-Replace this with your answer
+Unit Tests- testing on the 'smallest level', such as an individual method in a class, with all the dependencies mocked up.
+Functional Tests- broader tests of the functionality of a larger system; testing many methods at once.
+RSpec is a type of unit testing because--as the definition of unit testing suggests--it allows us to test even the smallest aspect of our code, such as ensuring that an argument in a method is not nil or is a capitalized string.
 ```
 
 ### Question 5
@@ -112,8 +119,9 @@ end
 
 Your answer:
 ```text
+`Describe` is used to test the general functionality of a method/describe how the method operates. In the example above, the test is showing that `add_tenant` is supposed to add the name of the tenant to the apartment that is passed in as an argument.
 
-Replace this with your answer
+`Context` is used when testing a specific condition of a method. In the example above, `context` is used to test that a tenant can successfully be added under the condition that the number of beds is greater than or equal to the amount of people.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +139,16 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+ERD stands for 'Entity Relationship Diagram' and it is a tool that we use to visual and describe the data as it relates to the major entities that exist in our programs. Visually, an ERD consists of multiple entities that contain attributes and are connected to one another depending on relationship and dependency. These ERD's do NOT contain methods, as we keep the data separate from the behavior.
+
+Example:
+Person :name, :age, :gender
+The entity Person is connected to the entities: Lamp and Pet.
+  Lamp :color, :weight, :style
+  Pet :name, :age, :gender, :species
+The entity Lamp is connected to the entity Genie.
+Genie :name, :age, :gender, :color, :special_powers
+
 ```
 
 ### Question 7
@@ -142,7 +159,9 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is a SQL file that creates the tables in our databases.
+
+Using the examples of people to wishes, one-to-many describes a typical relationship found between two entities. For example, one person has many wishes. In writing the schema.sql file, one of the attributes for the wishes would be person_id INT to connect the wishes to the appropriate person. Furthermore, in the person.rb file, one would write has_many :wishes and in the wish.rb file one would write belongs_to :person.
 ```
 
 ### Question 8
@@ -152,7 +171,7 @@ Replace this with your answer
 2. You have a working connection to the database for ActiveRecord.
 3. You have active record models defined for `Genie` and `Lamp`, and the
 relationships between the two are set up in Active Record.
-<!-- Do we want to specifiy what kind of relationship they have, in case some students aren't familiar with the mythology...? -->
+<!-- Do we want to specify what kind of relationship they have, in case some students aren't familiar with the mythology...? -->
 4. Lamps have one property, `wishes_remaining`, and genies have one property, `name`.
 
 Write code to do the following:
@@ -167,5 +186,11 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+genie = Genie.create(name: "Genie")
+genie.lamps.create(wishes_remaining: 3)
+lamp_good = Genie.find_by(name: "Genie").lamps
+lamp_good.update(wishes_remaining: 1)
+jafar = Genie.create(name: "Jafar")
+jafar.lamps.create(wishes_remaining: 3)
+lamp_good.update(wishes_remaining: nil)
 ```
