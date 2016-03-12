@@ -53,7 +53,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+#if town includes belle reject it.
+town.residents.select {|belle| town.residents.include?("Belle")}
 ```
 
 ### Question 3
