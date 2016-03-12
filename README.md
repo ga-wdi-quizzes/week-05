@@ -160,7 +160,22 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is the code version of an ERD in that it describes the relationships of the major entities and the data in the tables. You are able to load the code into your database by running a command.
+
+In a file we would:
+CREATE TABLE kids (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
+  birth_date INTEGER
+);
+
+CREATE TABLE wishes (
+  id SERIAL PRIMARY KEY,
+  content VARCHAR(255),
+  kid_id INTEGER
+);
+
+By putting the kid_id if the wishes table we can give a kid many wishes.
 ```
 
 ### Question 8
@@ -170,7 +185,7 @@ Replace this with your answer
 2. You have a working connection to the database for ActiveRecord.
 3. You have active record models defined for `Genie` and `Lamp`, and the
 relationships between the two are set up in Active Record.
-<!-- Do we want to specifiy what kind of relationship they have, in case some students aren't familiar with the mythology...? -->
+<!-- Do we want to specify what kind of relationship they have, in case some students aren't familiar with the mythology...? -->
 4. Lamps have one property, `wishes_remaining`, and genies have one property, `name`.
 
 Write code to do the following:
@@ -185,5 +200,30 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+#This is confusing. Lamps don't have wishes, people do.
+lamp = Lamp.create(wishes_remaining: 3)
+lamp.genies.create(name: "Genie")
+jafars_lamp = Lamp.create(wishes_remaining:3)
+jafars_lamp.genies.create(name: "Jafar")
+lamp.update(wishes_remaining: nil)
+
+
+
+#this makes more sense to me.
+aladdin = Human.create(name: "Aladdin", wishes_remaining: 3)
+Genie.create(name: "Genie", human: aladdin)
+#Jafar takes genie from Aladdin so aladdin has no more wishes.
+aladdin.update(wishes_remaining: 0)
+jafar = Human.create(name:"Jafar", wishes_remaining: 3)
+genie = Genie.find_by(name: "Genie")
+genie.update(human: jafar)
+
+#jafar becomes a genie
+genie.update(human: nil)
+jafar.destroy
+Genie.create(name: "Jafar", human: aladdin)
+
+
+
+
 ```
