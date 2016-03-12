@@ -52,7 +52,11 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+#removing Belle from residents
+town[:residents].delete_at(1)  # new value is ["Maurice", "Gaston"]
+
+#adding Belle to guests
+town[:castle][:guests] << "Belle"  # new value is ["Belle"]
 ```
 
 ### Question 3
