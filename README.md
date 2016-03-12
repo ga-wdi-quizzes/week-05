@@ -25,7 +25,11 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose (person)
+  puts "Would you take this rose and help out an old beggar, #{person}?"
+end
+
+offerRose("Young Prince")
 ```
 
 ### Question 2
@@ -48,7 +52,18 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town = {
+  residents: ["Maurice", "Belle", "Gaston"],
+  castle: {
+    num_rooms: 47,
+    residents: "Robby Benson",
+    guests: []
+  }
+}
+
+town[:residents].delete_if{|name| name == "Belle"}
+
+town[:castle][:guests] << "Belle"
 ```
 
 ### Question 3
@@ -70,7 +85,11 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends = ["Chip Potts", "Cogsworth", "Lumière", "Mrs. Potts"]
+
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -81,8 +100,7 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
-
-Replace this with your answer
+Unit tests are testing one particular element of the functionality as you go along. For example, testing using a puts statement to return the value in Pry. Functional testing are in-depth testing that confirms that the system does what it is expected to, and that something that was once working is not being broken by new code that has been added. RSpec is functional testing as it tests many different elements of the functionality at once and returns whether each test was a success or failure.
 ```
 
 ### Question 5
@@ -112,8 +130,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+Describe is a way of declaring that you the tests it contains are related to the "add_tenant" method within the Apartment class. Context explains the particular scenario that you will be testing within the method--in this case, if there is extra room in the apartment the method should add a tenant to equal 3.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +148,9 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is an entity relationship document. These are important because they help to establish the connections that all the different elements of the database will have to each other (what tables will be connected to one another, etc.).
+
+A genie can't exist without a lamp, so the genie would have an arrow pointing to the lamp. The lamp would have an arrow pointing to the person, who would rub the lamp to release the genie. The pet would likely not have any integration with the other three items in the database.
 ```
 
 ### Question 7
@@ -142,7 +161,8 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema details all the different characteristics that each table will have. We represent a one-to-many relationship by adding ' t.integer "person" ' to the wishes schema. This means that each wish belongs to one person, but a single person can have many wishes.
+
 ```
 
 ### Question 8
@@ -167,5 +187,10 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+lamp1 = lamp.create(wishes_remaining: 3, id: 1)
+genie = genie.create(name: "Genie", lamp_id: 1)
+lamp1.update(wishes_remaining: 1)
+lamp2 = lamp.create(wishes_remaining: 3, id: 2)
+jafar = genie.create(name: "Jafar", lamp_id: 2)
+genie.update(lamp_id: nil)
 ```
