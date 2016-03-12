@@ -25,7 +25,12 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose(person)
+    puts "Would you take this rose and help out and old beggar #{person}"
+end
+
+offerRose("Young Princess")
+offerRose("Young Prince")
 ```
 
 ### Question 2
@@ -48,7 +53,11 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+#if town includes belle reject it.
+belle = town[:residents].find {|person| person.eql?("Belle")}
+
+town[:castle][:residents] + " and " + belle
+
 ```
 
 ### Question 3
@@ -70,7 +79,10 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends = ["Chip Potts", "Cogsworth", "Lumière", "Mrs. Potts"]
+friends.each do |friend|
+    puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -82,7 +94,8 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Functional testing test the bigger picture/end user interactions with the app. These test click on links and go to webpages.
+Unit testing, like RSpec, do small test. They test small chunks of code like a method in a class.  
 ```
 
 ### Question 5
@@ -113,7 +126,7 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+describe and context do the same thing. They visually lump tests together into blocks. It makes it visually easier to read for humans in English. For us it was easy to use "describe" for explaining a what a method does and "context" for things inside that method like the if/elsif part of the method.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +144,12 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+ERD stands for entity-relationship diagram and is a tool used to visualize and describe data relating to major entities that will be in a program or organization.
+
+A Person can have many pets (or genies). A pet might have many owners but can have one owner(person). A genie only has one owner(person) and lives in only one lamp.
+
+In the case of Aladdin, it seems to be a convention to have a one to one human to pet relationship. ie Aladdin had one monkey, Jasmine had one tiger, Jafar had one parrot and vice versa. Geanie could have only one owner at a time but through out the movie he had many owners...
+
 ```
 
 ### Question 7
@@ -142,7 +160,22 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is the code version of an ERD in that it describes the relationships of the major entities and the data in the tables. You are able to load the code into your database by running a command.
+
+In a file we would:
+CREATE TABLE kids (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
+  birth_date INTEGER
+);
+
+CREATE TABLE wishes (
+  id SERIAL PRIMARY KEY,
+  content VARCHAR(255),
+  kid_id INTEGER
+);
+
+By putting the kid_id if the wishes table we can give a kid many wishes.
 ```
 
 ### Question 8
@@ -152,7 +185,7 @@ Replace this with your answer
 2. You have a working connection to the database for ActiveRecord.
 3. You have active record models defined for `Genie` and `Lamp`, and the
 relationships between the two are set up in Active Record.
-<!-- Do we want to specifiy what kind of relationship they have, in case some students aren't familiar with the mythology...? -->
+<!-- Do we want to specify what kind of relationship they have, in case some students aren't familiar with the mythology...? -->
 4. Lamps have one property, `wishes_remaining`, and genies have one property, `name`.
 
 Write code to do the following:
@@ -167,5 +200,30 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+#This is confusing. Lamps don't have wishes, people do.
+lamp = Lamp.create(wishes_remaining: 3)
+lamp.genies.create(name: "Genie")
+jafars_lamp = Lamp.create(wishes_remaining:3)
+jafars_lamp.genies.create(name: "Jafar")
+lamp.update(wishes_remaining: nil)
+
+
+
+#this makes more sense to me.
+aladdin = Human.create(name: "Aladdin", wishes_remaining: 3)
+Genie.create(name: "Genie", human: aladdin)
+#Jafar takes genie from Aladdin so aladdin has no more wishes.
+aladdin.update(wishes_remaining: 0)
+jafar = Human.create(name:"Jafar", wishes_remaining: 3)
+genie = Genie.find_by(name: "Genie")
+genie.update(human: jafar)
+
+#jafar becomes a genie
+genie.update(human: nil)
+jafar.destroy
+Genie.create(name: "Jafar", human: aladdin)
+
+
+
+
 ```
