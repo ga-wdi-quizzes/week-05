@@ -142,7 +142,16 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is a tool used to visualize and describe data relating the major entities of an app.
+
+Lamp has name (string)
+Genie has name (string) and age (integer)
+  Genie belongs to one lamp
+  Genie has many persons
+Person has name (string), age (integer), wishes (integer: 3)
+  Person belongs to one genie
+  Person has many pets
+    Pets has name (string), age (integer), breed (string)
 ```
 
 ### Question 7
@@ -153,7 +162,16 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is an outline of what kind of data your table(s) will contain.
+
+If we were using ActiveRecord:
+
+class People < ActiveRecord::Base
+  has_many :wishes
+end
+
+class Wish < ActiveRecord::Base
+  belongs_to :people
 ```
 
 ### Question 8
