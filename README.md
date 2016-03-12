@@ -54,7 +54,9 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town[:castle][:guests] << town[:residents].delete_at(1)
+# ROBIN PREFERS PUSH:
+town[:castle][:guests].push town[:residents].delete_at(1)
 ```
 
 ### Question 3
@@ -76,7 +78,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+    puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -88,7 +92,7 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit testing aims to test one specific part of a program, like a method or function. Functional testing takes a look at the bigger picture, like how programs interact with each other and is taken more at a user's perspective. RSpec is a great tool for unit testing because it allows you to simulate and test specific parts of your code.
 ```
 
 ### Question 5
@@ -119,7 +123,7 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+Functionally, there is no difference between describe and context. However, contextually, context allows us to easily identify tests being run against the 'describe' situation.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
