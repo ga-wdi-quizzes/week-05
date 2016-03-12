@@ -25,7 +25,11 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose(person)
+  puts "Would you take this rose and help out an old beggar, " + person + "?"
+end
+
+offerRose("young prince")
 ```
 
 ### Question 2
@@ -48,7 +52,10 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+
+town[:residents].delete "Belle"
+town[:castle][:guests] << "Belle"
+
 ```
 
 ### Question 3
@@ -70,7 +77,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+
+friends.each {|name| puts "Belle is friends with #{name}"}
+
 ```
 
 ## TDD and RSpec
@@ -82,7 +91,8 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+In this context "units" are individual pieces of code and the "function" is the desired activity that you're hoping your code performs. So unit testing will check that the individual pieces are doing their jobs - this is what RSpec does. Functional testing makes sure the program is meeting the requirements established out the outset (i.e., the point of the program). Unit tests can change/evolve during the course of creating the program depending on the tactics used. Functional tests generally do not change over the course of the project.
+
 ```
 
 ### Question 5
@@ -113,7 +123,8 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+describe is a key word that indicates the test will engage with a specific class or method. context is a keyword that indicates the test will examine the behavior of the method under a certain condition.
+
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +142,11 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+
+An ERD, aka an entity relationship diagram, is a graphical representation of how database tables are related to one another. ERBs are useful tools for ensuring that we understand our database and that we are establishing relationships correctly.
+
+In the given example  - assuming we want relationships between all four things (Aladdin did have a monkey) - there would be one genie pointing at one magic lamp (since there can only be one genie in a magic lamp at a time, obvs) and pointing at the person. The lamp would also be pointing at the person, indicating that the lamp can have one owner and that the person who owns the lamp controls the genie (the genie and the persons would be pointing at each other). The person would also be pointing at a table for pets indicating that a person can have multiple pets and that pets can only have one owner (holding aside entirely outdoor cats which I've heard often have multiple owners).
+
 ```
 
 ### Question 7
@@ -142,7 +157,11 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema describes the way a User is related to all the tables in a database that have some relationship with that User. A one-to-many relationship would have a User (here "person") with an id that would be shared among many wishes, and each wish would only reference one person_id.
+
+person: person_id, first_name, last_name
+wish: wish_id, wish_description, person_id
+
 ```
 
 ### Question 8
@@ -167,5 +186,19 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+
+lamp = Lamp.create(wishes_remaining: 3)
+genie = Genie.create(name: "Genie")
+
+lamp.update(genie: genie)
+
+lamp.update(wishes_remaining: 1)
+
+jafar = Genie.create(name: "Jafar")
+jafars_lamp = Lamp.create(wishes_remaining: 3)
+jafars_lamp.update(genie: jafar)
+
+genie.update(lamp: nil)
+
+
 ```
