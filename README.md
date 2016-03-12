@@ -144,7 +144,12 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+ERD stands for entity-relationship diagram and is a tool used to visualize and describe data relating to major entities that will be in a program or organization.
+
+A Person can have many pets (or genies). A pet might have many owners but can have one owner(person). A genie only has one owner(person) and lives in only one lamp.
+
+In the case of Aladdin, it seems to be a convention to have a one to one human to pet relationship. ie Aladdin had one monkey, Jasmine had one tiger, Jafar had one parrot and vice versa. Geanie could have only one owner at a time but through out the movie he had many owners...
+
 ```
 
 ### Question 7
