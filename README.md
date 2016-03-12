@@ -51,7 +51,9 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+var a = town[0][1]
+town(castle[3].push(a)
+# look this up
 ```
 
 ### Question 3
@@ -73,7 +75,15 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  "Belle is friends with #{friend}"
+end
+# I added a bonus : I made each of them to be friends
+friends.each do |friend|
+  friends.reverse.each do |friendr|
+  puts "#{friend}is friends with#{friendr}"
+end
+
 ```
 
 ## TDD and RSpec
