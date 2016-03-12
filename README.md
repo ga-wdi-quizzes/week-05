@@ -187,6 +187,14 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
+class Lamp < ActiveRecord::Base
+  has_many :genies
+end
+
+class Genie < ActiveRecord::Base
+  has_one :lamp
+end
+
 lamp1 = lamp.create(wishes_remaining: 3, id: 1)
 genie = genie.create(name: "Genie", lamp_id: 1)
 lamp1.update(wishes_remaining: 1)
