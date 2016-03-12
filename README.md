@@ -94,7 +94,8 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Functional testing test the bigger picture/end user interactions with the app. These test click on links and go to webpages.
+Unit testing, like RSpec, do small test. They test small chunks of code like a method in a class.  
 ```
 
 ### Question 5
@@ -125,7 +126,7 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+describe and context do the same thing. They visually lump tests together into blocks. It makes it visually easier to read for humans in English. For us it was easy to use "describe" for explaining a what a method does and "context" for things inside that method like the if/elsif part of the method.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
