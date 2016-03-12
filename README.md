@@ -54,9 +54,9 @@ add her to the list of guests in the castle.
 Write your code here:
 ```ruby
 #if town includes belle reject it.
-belle = town[:residents].select {|person| person.eql?("Belle")}
+belle = town[:residents].find {|person| person.eql?("Belle")}
 
-town[:castle][:residents] + belle
+town[:castle][:residents] + " and " + belle
 
 ```
 
