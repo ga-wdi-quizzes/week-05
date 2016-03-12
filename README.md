@@ -75,7 +75,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -87,7 +89,9 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit testing is used at the smallest level, testing the functionality of a specific method.
+
+Functional testing has a wider scope and is used to test a user functionality of an app. This can involve multiple methods.
 ```
 
 ### Question 5
@@ -118,7 +122,9 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+'describe' is used when referring to either a Class or a method. 'context' is used within a method to specify what should happen in conditionals.
+
+I'm not sure if this answer is correct. I googled the difference and it seems that the main difference lies in readability of the tests.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
