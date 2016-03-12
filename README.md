@@ -94,7 +94,11 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit tests cover small blocks of code, testing with specific inputs to look for specific outputs. These are developer level tests to help find bugs and ensure our refactors have no surprises.
+
+Functional tests are designed for user interaction. They cover DOM-related issues like navigation (ex: link clicks) and listener events (ex: button clicks).
+
+RSpec is a unit testing framework. It helps developers write tests for our small blocks of code with an easy to read and write syntax.
 ```
 
 ### Question 5
@@ -125,7 +129,7 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+The describe and context tokens actually do the same thing. They are both to make the tests easier to read and understand for the programmer. However, by convention, describe is typically used to talk about the specific object or method that is being tested and context is typically used to talk about the specific condition of that test. In the example above, describe indicates we are talking about the Apartment and the method to add tenants. In the context block, the condition is given to test.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
