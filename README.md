@@ -139,7 +139,26 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is a design tool that maps out a visual representation of entities defined in a database and their relationship to one another. We create ERD to assist in planning out the information we need in our database.
+
+Genie
+- name
+- grants wishes
+- has_one :lamp
+
+Lamp
+- color
+- belongs_to :genie
+
+Person
+- name
+- makes wishes
+- has_many :pets
+
+Pet
+- name
+- species
+- belongs_to :person
 ```
 
 ### Question 7
@@ -150,7 +169,20 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is an outline used to create tables and their attributes within a database.
+
+CREATE TABLE people (
+- id SERIAL PRIMARY KEY,
+- first_name TEXT NOT NULL,
+- last_name TEXT NOT NULL
+);
+
+CREATE TABLE wishes (
+- id SERIAL PRIMARY KEY,
+- things_wished_for TEXT NOT NULL,
+- people_id INT
+);
+
 ```
 
 ### Question 8
