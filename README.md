@@ -129,7 +129,7 @@ end
 Your answer:
 ```text
 
-The describe and context tokens actually do the same thing. They are both to make the tests easier to read and understand for the programmer. However, by convention, describe is typically used to talk about the specific object or method that is being tested and context is typically used to talk about the specific condition of that test. In the example above, describe indicates we are talking about the Apartment and the method to add tenants. In the context block, the condition is given to test.
+The describe and context tokens actually do the same thing. They are both to make the tests easier to read and understand for the programmer. However, by convention, describe is typically used to talk about the specific object or method that is being tested and context is typically used to talk about the specific conditions of that test. In the example above, describe indicates we are talking about the Apartment and the method to add tenants. In the context block, the condition (when there is enough room for a tenant) is given. 
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
