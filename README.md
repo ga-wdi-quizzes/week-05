@@ -223,3 +223,4 @@ lamp_new = Lamp.create(wishes_remaining: 3)
 lamp.update(nil)
 
 ```
+Switch branch.
