@@ -29,7 +29,7 @@ def offerRose(person)
   puts "Would you take this rose and help out
   an old beggar, #{person}?"
 end
-  offerRose("young Prince")
+  offerRose("young prince")
 ```
 
 ### Question 2
