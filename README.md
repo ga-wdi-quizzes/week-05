@@ -129,7 +129,7 @@ end
 Your answer:
 ```text
 
-The describe and context tokens actually do the same thing. They are both to make the tests easier to read and understand for the programmer. However, by convention, describe is typically used to talk about the specific object or method that is being tested and context is typically used to talk about the specific conditions of that test. In the example above, describe indicates we are talking about the Apartment and the method to add tenants. In the context block, the condition (when there is enough room for a tenant) is given. 
+The describe and context tokens actually do the same thing. They are both to make the tests easier to read and understand for the programmer. However, by convention, describe is typically used to talk about the specific object or method that is being tested and context is typically used to talk about the specific conditions of that test. In the example above, describe indicates we are talking about the Apartment and the method to add tenants. In the context block, the condition (when there is enough room for a tenant) is given.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -147,7 +147,24 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+And ERD is a tool programmers use to visualize and describe the relationships between data that will exist in our programs. We create them to better plan out our database table structure before we begin to program. It does not describe behaviors of the items, just the attributes and relationships.
+
+Person:
+- name
+- has pets
+- has a lamp
+
+Pet:
+- name
+- species
+
+Lamp
+- color
+- has a genie
+
+genie
+- name
+- number of wishes available
 ```
 
 ### Question 7
