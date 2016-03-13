@@ -25,7 +25,11 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose(person)
+  puts "Would you take this rose and help out an old beggar, #{person}?"
+end
+
+offerRose("young price")
 ```
 
 ### Question 2
@@ -48,7 +52,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town[:residents].delete("Belle")
+town[:castle][:guests].push("Belle")
 ```
 
 ### Question 3
@@ -70,7 +75,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -82,7 +89,9 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit testing is used at the smallest level, testing the functionality of a specific method.
+
+Functional testing has a wider scope and is used to test a user functionality of an app. This can involve multiple methods.
 ```
 
 ### Question 5
@@ -113,7 +122,9 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+'describe' is used when referring to either a Class or a method. 'context' is used within a method to specify what should happen in conditionals.
+
+I'm not sure if this answer is correct. I googled the difference and it seems that the main difference lies in readability of the tests.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +142,16 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is a tool used to visualize and describe data relating the major entities of an app.
+
+Lamp has name (string)
+Genie has name (string) and age (integer)
+  Genie belongs to one lamp
+  Genie has many persons
+Person has name (string), age (integer), wishes (integer: 3)
+  Person belongs to one genie
+  Person has many pets
+    Pets has name (string), age (integer), breed (string)
 ```
 
 ### Question 7
@@ -142,7 +162,16 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is an outline of what kind of data your table(s) will contain.
+
+If we were using ActiveRecord:
+
+class People < ActiveRecord::Base
+  has_many :wishes
+end
+
+class Wish < ActiveRecord::Base
+  belongs_to :people
 ```
 
 ### Question 8
@@ -167,5 +196,13 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+goldlamp = Lamp.create(wishes_remaining: 3)
+genie = Genie.create(name: "Genie", lamp_id: 1)
+
+goldlamp.update(wishes_remaining: 1)
+
+blacklamp = Lamp.create(wishes_remaining: 3)
+jafar = Genie.create(name: "Jafar", lamp_id: 2)
+
+goldlamp.destroy
 ```
