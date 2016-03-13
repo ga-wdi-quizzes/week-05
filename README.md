@@ -148,6 +148,7 @@ Genie
 
 Lamp
 - color
+-contains wishes
 - belongs_to :genie
 
 Person
@@ -208,5 +209,9 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
-```
+1. lamp = Lamp.create(wishes_remaining: 3)   genie = Genie.create(name: "Genie")
+2. genie.update(lamp: lamp)
+3. lamp.update(wishes_remaining: 1)
+4. jafar = Genie.create(name: "Jafar")   jafar_lamp = Lamp.create(wishes_remaining: 3)
+5. genie.update(lamp: nil)
+``
