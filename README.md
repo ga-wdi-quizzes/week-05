@@ -25,7 +25,11 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+# # def offerRose
+# 	puts “Would you tale this rose and help put an old beggar “#{name}”
+# end
+# offer_rose “young prince”
+
 ```
 
 ### Question 2
@@ -48,7 +52,9 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+# # belle = town [;residents].delete
+# town: [:castle][:guest].push (belle)
+```
 ```
 
 ### Question 3
@@ -79,10 +85,11 @@ Write your code here:
 
 Describe the differences between unit and functional testing. What type of testing is RSpec and why?
 
-Your answer:
+Unit testing test methods in a class and all dependent mock ups. Testing is done on an individual unit.
+Functional units test many methods and interacts with dependent databases or web services. It is also called Integration test (or testing). It tests a part of a functionality in a system
+RSpec  is defect testing framework. It tests domain specific languages which makes it easier to write test.
 ```text
 
-Replace this with your answer
 ```
 
 ### Question 5
@@ -112,8 +119,9 @@ end
 
 Your answer:
 ```text
+Describe deals with the unit that is being tested.
+Context deals with testing and the condition that's being tested.
 
-Replace this with your answer
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
