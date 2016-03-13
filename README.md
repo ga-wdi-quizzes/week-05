@@ -134,7 +134,22 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An Entity Relationship Diagram (ERD) is a way of representing tables in a database. They are useful for applications because they help us visualize all of the relationships and properties of each table in the database and help in planning the connections between the entities.
+
+Genie
+  name
+  belongs_to: lamp
+  has_many: persons
+Lamp
+  name
+  belongs_to: person
+Person
+  name
+  wishes
+  has_many: pets
+Pet
+  name
+  belongs_to: person
 ```
 
 ### Question 7
