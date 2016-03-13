@@ -25,7 +25,13 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+
+def offerRose(person)
+  puts ("would you take this rose and help out an old begger, #{person}?")
+end
+  offerRose("young prince")
+
+
 ```
 
 ### Question 2
@@ -48,7 +54,12 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+
+Belle = town[:residents].delete("Belle")
+town[:castle][:guests] << belle
+
+
+
 ```
 
 ### Question 3
@@ -70,7 +81,15 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
+
+
+
+
+
 ```
 
 ## TDD and RSpec
@@ -82,7 +101,8 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit testing is to check to see if methods are working and functional tests are to see if specific functionalty of an app is working usually on the client side. Rspec is a unit testing becuase it checks for methods.
+
 ```
 
 ### Question 5
@@ -113,7 +133,9 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+Describe is testing for method while context is testing for method under condition.
+
+
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +153,12 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+ERD is entity relationship diagram which shows the connection between different table entities. we create them so that they are stored in organized manner and are ready for mapping. attributes and relationship
+Genie is magical has one lamp
+lamp is shiny belongs to Person
+person is a prince has lamp and a Pet
+pet is a monkey and has crush on Alladin's gf.
+
 ```
 
 ### Question 7
@@ -142,7 +169,10 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+Schema defines what kinds of data database can accept, integer, string, etc
+Bipin has many wishes which are stored on his wishes table. wishes table also has ID associated with each wish rows. Wishes table might have wishes that belong to Alladin.
+
+
 ```
 
 ### Question 8
@@ -167,5 +197,16 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+
+lamp = Lamp.create(wishes: 3)
+genie = Genie.create(name:"Genie")
+lamp.update(genie: genie)
+update.lamp(wishes: 1)
+jafar = Genie.create(name: "Jafar")
+jafarsLamp = newLamp.create(wishes: 3)
+genie.update(lamp:nil)
+
+
+
+
 ```
