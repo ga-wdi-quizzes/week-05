@@ -25,7 +25,16 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+
+def offerRose (person)
+  puts "Would you take this rose and help out an old beggar, #{person}?"
+end
+
+offerRose("young prince")
+
+# The output of offerRose is `nil`, while the side effect is the `puts` statement
+# By convention, Ruby methods are defined using snake case (e.g, `offer_rose`) instead of camel case, as illustrated above
+
 ```
 
 ### Question 2
@@ -48,7 +57,17 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+
+#remove Belle from the town residents
+
+town[:residents].delete("Belle")
+
+# add Belle to the list of guests in the castle
+
+town[:castle][:guests].push("Belle") # or we could use the shovel operator
+
+town[:castle][:guests] << "Belle"
+
 ```
 
 ### Question 3
