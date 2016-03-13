@@ -123,7 +123,7 @@ end
 Your answer:
 ```text
 
-Functionally, there is no difference between describe and context. However, contextually, context allows us to easily identify tests being run against the 'describe' situation.
+Functionally, there is no difference between describe and context. However, contextually, 'context' allows us to easily identify tests being run against the 'describe' situation. In this example, describe is pointing to the method add_tenant and context is running the test scenario.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -141,7 +141,10 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is a model for displaying relationships between tables in a database (it also shows the columns that belong to a particular table as well). We create them to map out the design of a db and to visualize and establish those relationships.
+Using the example provided, a persons table would have attributes such as name, gender, age, etc.
+That Person table would then have relationships to two other tables: pets and lamps. The pets table may contain name, species, color, age, etc. and the lamps table may contain attributes such as color, shape, and origin. Both of the pets and lamps table would be linked by a column 'person_id' which establishes a relationship back to the persons table (the pets and lamps do not need to be linked to one another). Finally, the genies table will contain info about the genies: name, age, etc. and would be linked to the lamps table by 'lamp_id'.
+
 ```
 
 ### Question 7
@@ -152,7 +155,10 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+Schemas allows us to map relationships between classes in Ruby with tables in our database.
+One-to-many relationships are mapped by columns in the 'dependent' table/schema. Using the example, the wishes table would contain a column represented as so:
+  t.integer :people_id
+This indicates that an integer corresponds to a primary key number from the people table which synchs the wishes to a person.
 ```
 
 ### Question 8
@@ -177,5 +183,12 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+1.
+newLamp = Lamp.create(wishes_remaining:3) #id = 1
+newGenie = Genie.create(name:'Genie')
+2. newGenie.update(lamp_id:1)
+3. newLamp.update(wishes_remaining:1)
+4. jafarLamp = Lamp.create(wishes_remaining:3) #id = 2
+jafar = Genie.create(name:'Jafar',lamp_id:2)
+5. newLamp.update(wishes_remaining:nil)
 ```
