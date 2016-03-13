@@ -216,5 +216,20 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+# 1.
+the_lamp = Lamp.create(wishes_remaining: 3)
+genie = Genie.create(name: "Genie")
+
+# 2. Wasn't sure if a lamp belonged to a genie or if a genie belonged to a lamp...
+lamp.update(genie: genie)
+
+# 3.
+lamp.update(wishes_remaining: 1)
+
+# 4.
+jafar = Genie.create(name: "Jafar")
+jafars_lamp = Lamp.create(wishes_remaining: 3, genie: jafar)
+
+# 5.
+the_lamp.delete
 ```
