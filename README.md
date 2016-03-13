@@ -25,7 +25,12 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose(person)
+  p "Would you take this rose and help out
+  an old beggar, #{person}?"
+end
+
+offerRose("young prince")
 ```
 
 ### Question 2
@@ -48,7 +53,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town[:castle][:guests] << town[:residents].delete("Belle")
+
 ```
 
 ### Question 3
@@ -70,7 +76,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  p "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -81,8 +89,8 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
-
-Replace this with your answer
+Unit testing is intended to address program functionality at a specific method. Functional testing is more widely focused and intends to address program functionality with respect to the user, e.g. submitting information through a website, clicking links, etc
+RSpec is a type of unit testing specific to ruby. It helps the developer to ensure that individual methods are working in their program.
 ```
 
 ### Question 5
@@ -112,8 +120,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+'Describe' and 'Context' have the same affect on the RSpec tests but are semantically different. Context typically addresses the different contingencies in an if statement while describe relates to an entire method or object. Here 'describe' is used to relate the test to an object labeled 'Apartment' and the method 'add_tenant' contained within that object. 'Context' is used to relate the contingency when there is less than or equal to a certain number of beds in the apartment to make sure the method works appropriately in that scenario.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +138,7 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An Entity Relationship Diagram, or ERD, is a visualization of the major entities of a program. These entities are relatable on a 'parent-child' basis, where a parent and child can exist on one-to-one, one-to-many, or many-to-many basis. ERD's are used to plan out structure for large databases and to show which entities of a program belong where. A person or many people (parent) could find one or many lamps (child) (many-to-many). For the sake of this problem, let's assume that genie lamps are rare and that one person (parent) found one lamp (one-to-one). In this lamp (parent) there would be one genie (child) inside of it (one-to-one). 'Pet' would not belong in the ERD since this is a behavior performed by the person to summon the genie.
 ```
 
 ### Question 7
@@ -142,7 +149,7 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is the code that defines the makeup of columns in a table. A schema for an individual column includes the name of the column, the expected data type within that column, and any constraints on the data within that column. We can represent a one-to-many relationship in an SQL database by creating separate tables and linking them based on an ID identifier. For instance, we could create a table titled 'people' that includes a person's ID number, name, and other attributes about that person. Then in a different table titled 'wishes' we could make columns that include that description of the wish and an column specifying which person that wish belongs to (typically by the ID number that corresponds to the person in the people table). This way we could list all the wishes made by all people but provide the link of who made each wish.
 ```
 
 ### Question 8
@@ -167,5 +174,12 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+lamp = Lamp.create(wishes_remaining: 3)
+genie = Genie.create(name: 'Genie')
+lamp.update(genie: genie)
+lamp.update(wishes_remaining: 1)
+jafar = Genie.create(name: Jafar)
+lamp2 = Lamp.create(wishes_remaining: 3)
+lamp2.update(genie: jafar)
+genie.update(lamp: nil)
 ```
