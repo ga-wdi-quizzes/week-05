@@ -25,7 +25,11 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose(person)
+  puts "Would you take this rose and help out
+  an old beggar, #{person}?"
+end
+  offerRose("young Prince")
 ```
 
 ### Question 2
@@ -41,6 +45,8 @@ town = {
     guests: []
   }
 }
+town[:residents] - ["Belle"]
+town[:castle][:guests] << "Belle"
 ```
 
 Using Ruby, remove Belle from the town residents, and
@@ -70,7 +76,7 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each { |friend| puts "Belle is friends with #{friend}}"
 ```
 
 ## TDD and RSpec
@@ -80,9 +86,10 @@ Write your code here:
 Describe the differences between unit and functional testing. What type of testing is RSpec and why?
 
 Your answer:
-```text
-
-Replace this with your answer
+```
+Unit testing tests the smallest level of the code, or the functionality of specific methods and blocks of code.
+Functional testing has a broader scope in that it tests to make sure that user interaction is working properly.
+Rspec is a domain specific language framework that uses unit testing. When the rspec tests pass it demonstrates that the app features are complete and written correctly with few to no bugs!
 ```
 
 ### Question 5
@@ -111,9 +118,8 @@ end
 ```
 
 Your answer:
-```text
-
-Replace this with your answer
+```
+The purpose of describe is to wrap the tests against the Apartment functionality, whereas the purpose of context is also to wrap the test against the Apartment functionality under the state of "when there is a room". In essence, they both wrap tests but context is more specific, which makes it easier for programmers to read tests and understand their individual behaviors.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +137,9 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An entity relationship diagram (ERD) is a tool that programmers use to  create, and describe data structures and their relationships. We create them for applications to be able to visualize and plan out the entity structures' attributes and actions.
+
+Using the example above, a Genie and Person serve as the relationship of an entity to a Lamp and Pet, respectively. In terms of how these relationships would be mapped on an ERD diagram, one could say that a Person can have many pets but a pet can not have more than one person. In this context, the Person provides the overall scope for which the pet is contained. In the Genie example, since the Genie can pop out of and go inside a lamp, a diamond shaped box would be used in an ERD diagram to describe the action of the Genie in relation to the lamp.
 ```
 
 ### Question 7
@@ -142,7 +150,7 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is the blueprint of how the database is constructed. One purpose of a schema is to specify how the facts that are inputted into the database apply to the end users. A one-to-many relationship is diagrammed in a SQL database by having two separate (rectangular) entities connected by one (diamond) relationship in a 1:N format. The '1' represents the one instance associated with the relationship, and the N represents more than one instance associated with a relationship. In this case, people can have more than one wish, but wishes cannot have more than one person. Therefore, 1 would be on the people side and wishes would be on the N side.
 ```
 
 ### Question 8
@@ -166,6 +174,28 @@ Write code to do the following:
 
 
 Write your code here:
-```ruby
-# code here
+```
+<!-- 1. Create a lamp with 3 wishes remaining and a genie named 'Genie' -->
+lamp = Lamp.create(wishes_remaining: 3)
+genie = Genie.create(name: "Genie")
+
+<!-- 2. Create a relationship between 'Genie' and the lamp. -->
+class Genie < ActiveRecord::Base
+has_one :genie
+end
+class Lamp < ActiveRecord::Base
+belongs_to :lamp
+end
+
+<!-- 3. Update the lamp so it only has one wish left. -->
+lamp.update(wishes_remaining: 1)
+
+<!-- 4. Create a new Genie named 'Jafar' and put him in a new lamp with 3 wishes left. -->
+jafar = Genie.create(name: "Jafar")
+jafar_lamp = Lamp.create(wishes_remaining: 3)
+jafar_lamp.update(genie: jafar)
+
+<!-- 5. Free the good Genie by setting his lamp to `nil` -->
+genie.update(lamp: nil)
+
 ```
