@@ -139,7 +139,7 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-An ERD is a design tool that maps out a visual representation of entities defined in a database and their relationship to one another. We create ERD to assist in planning out the information we need in our database.
+An ERD is a design tool that maps out a visual representation of entities defined in a database and their relationship to one another. We create ERD's to assist in planning out the information we need in our database.
 
 Genie
 - name
@@ -148,7 +148,7 @@ Genie
 
 Lamp
 - color
--contains wishes
+- contains wishes
 - belongs_to :genie
 
 Person
