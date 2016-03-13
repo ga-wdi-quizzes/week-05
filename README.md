@@ -165,16 +165,6 @@ Pet
 
 
 
-
-
-
-
-
-
-
-
-
-
 ```
 
 ### Question 7
@@ -211,4 +201,14 @@ Write code to do the following:
 Write your code here:
 ```ruby
 # code here
+genie= Genie.create(name:"Genie")
+genieLamp = Lamp.create(wishes_remaining: 3)
+
+lamp.Update(genie:genie)
+lamp.Update(wishes_remaining: 1)
+
+jafar= Genie.create(genie: "Jafar")
+new_lamp(wishes_remaining: 3)
+new_lamp.update(genie: jafar)
+genie.update(genie:"nil")
 ```
