@@ -89,7 +89,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+
+friends.each { |friend| puts "Belle is friends with #{friend}."  }
+
 ```
 
 ## TDD and RSpec
@@ -101,7 +103,10 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit tests are narrowly focused, which means that each test checks the functionality of a specific method. Functional testing, on the other hand, is concerned with checking functionality on the level of user interaction (e.g., testing a submission form or log-in functionality). Thus, functional testing is often the main component of user acceptance testing (UAT), wherein an end user may check to see if each feature documented in the functional requirements works as expected.
+
+RSpec is used for unit testing, because RSpec tests are written for individual methods on a Ruby class or object. RSpec is important in Test-Driven Development (TDD) in Ruby, because it allows the programmer to write methods one-by-one in order to check each method against its corresponding specification(s).
+
 ```
 
 ### Question 5
