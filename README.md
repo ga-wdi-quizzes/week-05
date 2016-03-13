@@ -175,7 +175,23 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A scheme in an SQL database is a blueprint for defining the columns a table will have. For each column it includes the column's name, the column's data type, and any constraints or rules that might be needed for that column.
+
+To represent a one-to-many relationship in an SQL database, we create a column that can be used to join the two tables together. Example:
+
+people
+-id
+- name
+
+wishes
+- id
+- the_wish
+- people_id
+
+From there, we can call the following:
+SELECT * FROM wishes JOIN people ON wishes.people_id = people.id;
+
+This will connect the two tables via their shared column and allow us to search through the one-to-many relationship.
 ```
 
 ### Question 8
