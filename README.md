@@ -77,6 +77,10 @@ Belle is friends with Mrs. Potts
 Write your code here:
 ```ruby
 # code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}."
+end
+
 ```
 
 ## TDD and RSpec
@@ -139,7 +143,38 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+Genie
+- Name
+- has_one :Lamp
+- wishes: wishes_granted
+
+Lamp
+- made_of :metal
+- contains: Genie
+- belongs_to :Genie
+
+Person
+-Name
+-Age
+- owns_one :pet
+
+Pet
+-Name
+-Breed
+-belongs_to :Person
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```
 
 ### Question 7
