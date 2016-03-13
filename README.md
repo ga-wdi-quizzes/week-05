@@ -149,6 +149,7 @@ Genie
 - wishes: wishes_granted
 
 Lamp
+- Genie ID
 - made_of :metal
 - contains: Genie
 - belongs_to :Genie
@@ -159,6 +160,7 @@ Person
 - owns_one :pet
 
 Pet
+-Person ID
 -Name
 -Breed
 -belongs_to :Person
