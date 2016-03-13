@@ -149,8 +149,8 @@ SQL database. If you need an example, you can use: people and wishes
 (one-to-many).
 
 Your answer:
-```
-Replace this with your answer
+```#
+Schema is a collection of database objects (e.g. Tables, etc.) The objects are associated with one particular database username (schema owner) You can have one or multiple schemas in a database.
 ```
 
 ### Question 8
