@@ -158,7 +158,11 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+
+An ERD is an "Entity Relationship Diagram," which means that it is a visualization and description of the data relating to the major entities that will exist in a given program. ERDs allow us to plan out and ultimately create the table structure in an application's database.
+
+Entities in an ERD may have a number of different kinds of relationships, and these relationships are commonly indicated using an arrow and open or closed circle. "One-to-many" means that a single entity may have many of another type of entity, (e.g., a "Person" entity may have many "Pet" entities). "One-to-one" means that a single entity may only have one of another type of entity (e.g., a "Genie" entity may belong only to one "Lamp" entity, and each lamp may have only one genie). "Many-to-many" means that an entity may have multiple other entities, and those other entities may belong to multiple other entities (e.g., A "Genie" entity may belong to multiple "Person" entities over time, and a "Person" entity may have multiple "Genie" entities at any given time).
+
 ```
 
 ### Question 7
@@ -169,7 +173,24 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+Every application will have a database that will likely include multiple tables, each of which will store similar data. Every table will also have a schema, which defines which columns that table will include as well as the following information about each column: (1) the column's name, (2) the column's data type, and (3) any constraints or rules for the column. Together, the schemata for the tables constitute the database's schema.
+
+Below is an example of how to define a schema for people and wishes in a SQL database. Note that each person has multiple wishes, but a given wish can only have one person (i.e., the relationship between the two tables is one-to-many).
+
+DROP TABLE IF EXISTS people;
+DROP TABLE IF EXISTS wishes;
+
+CREATE TABLE people (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+);
+
+CREATE TABLE wishes (
+  id SERIAL PRIMARY KEY,
+  number INTEGER,
+  people_id INTEGER
+);
+
 ```
 
 ### Question 8
