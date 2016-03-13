@@ -25,7 +25,10 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose (person)
+  puts "Would you take this rose and help out an old beggar, #{person}?"
+end
+offerRose("young prince")
 ```
 
 ### Question 2
@@ -48,7 +51,7 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town[:castle][:guests].push town[:residents].delete_at(1)
 ```
 
 ### Question 3
@@ -70,7 +73,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -81,8 +86,7 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
-
-Replace this with your answer
+Unit testing checks individual units, like a specific method in a class, to make sure they are working on their own.  Functional tests check to see that the whole program is functioning as expected.  Rspec is unit testing used by developers to test small chunks of code individually.
 ```
 
 ### Question 5
@@ -112,8 +116,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+Describe and context do the same thing and are only both used for the sake of readability. In this case, context is being used to separate a spec based on a condition, and describe is used to introduce a new method being tested.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +134,19 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is a chart used to visually represent the relationships between different entities, especially in terms of a database.  
+Person
+  attributes - name, age, hair color
+  relationships - has one Pet, has one Lamp
+Pet
+  attributes - name, animal, breed
+  relationships - has one Person
+Lamp
+  attributes - color,
+  relationships - has one Genie, has one Person
+Genie
+  attributes - name, age
+  relationships - has one lamp
 ```
 
 ### Question 7
@@ -142,7 +157,10 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema lays out the structure of the data that will be in the database.  It defines how the data is organized and what the relationships between the data are. To represent a one to many relationship we use a foreign key on the "many" side that links back to the "one" side.
+
+people: person_id, name, age
+wishes:  wish_id, wish_content, person_id
 ```
 
 ### Question 8
@@ -167,5 +185,12 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+lamp = Lamp.create(wishes_remaining: 3)
+genie = Genie.create(name: "Genie")
+lamp.update(genie: genie)
+lamp.update(wishes_remaining: 1)
+jafar = Genie.create(name: "Jafar")
+jafar_lamp = Lamp.create(wishes_remaining: 3)
+jafar_lamp.update(genie: jafar)
+genie.update(lamp: nil)
 ```
