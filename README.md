@@ -137,7 +137,10 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+Functionally speaking, RSpec does not differentiate between `describe` and `context`; however, they are important for ensuring that tests are readable and intelligible to someone reviewing the specifications. It is important to note that neither `describe` nor `context` are used in actual tests, which follow this format: `it [string] do [some code] end`.
+
+In the tests of the `Apartment` class as illustrated above, we see that `describe "#add_tenant"` is the description of the`.add_tenant` method, which is the specific method being tested. On the other hand, `context` includes a test of the `.add_tenant` method only when the apartment object has enough beds for and additional tenant. In sum `describe` indicates what is being tested (viz., the `add_tenant` method), and `context` indicates a specific circumstance *when* that method is being tested.
+
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
