@@ -25,7 +25,12 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose(person)
+  puts "Would you take this rose and help out
+  an old beggar, #{person}?"
+end
+
+offerRose("young prince")
 ```
 
 ### Question 2
@@ -48,7 +53,14 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town = {
+  residents: ["Maurice", "Belle", "Gaston"],
+  castle: {
+    num_rooms: 47,
+    residents: "Robby Benson",
+    guests: []
+  }
+}
 ```
 
 ### Question 3
@@ -70,7 +82,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+ p "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -82,7 +96,7 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit testing checks the functionality of a specific method at the smallest level – basically to make sure a specific input leads to a specific output. Functional testing has a wider focus, for things like form submission and making sure that users have appropriate access to pages based on their admin privileges, etc. RSpec testing seems to be mostly unit testing, but it can incorporate both unit and functional testing – unit testing always comes first, and is more critical.
 ```
 
 ### Question 5
@@ -113,7 +127,7 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+'Describe' and 'context' technically have no difference when it comes to the code - they do the exact same thing, which is to help organize tests. The difference is really from an English-readable standpoint - describe is used to talk about a specific method or object. In this case, it's about the class Apartment. Context does exactly what it says - it talks about different contexts in which to test the Apartment class. Here, it's when there are two tenants with room for a third. However, if we were to use all 'describe' or all 'context', or invert the way they're used here, the tests would work the exact same way - it would just be harder for others to follow what's being tested.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +145,11 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is an Entity Relationship Diagram, and serves as a tool to help us describe the data / attributes related to the major entities that will exist in our programs. They also ultimately help us plan out and create our table database structure.  
+
+For these entities, a lamp might be at the top of the schema, and for each lamp, there is exactly one genie, but many potential people who maybe possess the lamp for three wishes.
+
+Pet isn't an entity in the schema – it's possible that a pet could be one of the three wishes a person asks the genie for, but that would be an attribute, not an entity.
 ```
 
 ### Question 7
@@ -142,7 +160,7 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is an example of one way to visually represent an Entity Relationship Diagram – the one-to-many relationship is illustrated by arrows on the lines between the entities. If there is an arrow on just one side of the line, that indicates that the side with the arrow has more than one / many. If there is an arrow on both sides, that illustrates a many-to-many relationship. Each person gets three wishes, so that would be a one-to-many relationship.
 ```
 
 ### Question 8
@@ -167,5 +185,23 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+1. lamp = Lamp.create(wishes_remaining: 3)
+genie = lamp.genie.create(name: "Genie")
+
+2. class Lamp < ActiveRecord::Base
+  has_one :genie
+end
+
+class Genie < ActiveRecord::Base
+  belongs_to :lamp
+end
+
+3. lamp.update(wishes_remaining: 3)
+
+4. evil_lamp = Lamp.create(wishes_remaining: 3)
+
+jafar = evil_lamp.genie.create(name: "Jafar")
+
+5. lamp.destroy
+
 ```
