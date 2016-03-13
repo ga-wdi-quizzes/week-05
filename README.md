@@ -25,7 +25,12 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose(person)
+  puts "Would you take this rose and help out
+  an old beggar, #{person}?"
+end
+
+offerRose("young prince")
 ```
 
 ### Question 2
@@ -48,7 +53,12 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+belle = town[:residents][1]
+town[:castle][:residents] << ", " + belle
+
+
+
+
 ```
 
 ### Question 3
@@ -70,7 +80,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -82,7 +94,11 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit tests cover small blocks of code, testing with specific inputs to look for specific outputs. These are developer level tests to help find bugs and ensure our refactors have no surprises.
+
+Functional tests are designed for user interaction. They cover DOM-related issues like navigation (ex: link clicks) and listener events (ex: button clicks).
+
+RSpec is a unit testing framework. It helps developers write tests for our small blocks of code with an easy to read and write syntax.
 ```
 
 ### Question 5
@@ -113,7 +129,7 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+The describe and context tokens actually do the same thing. They are both to make the tests easier to read and understand for the programmer. However, by convention, describe is typically used to talk about the specific object or method that is being tested and context is typically used to talk about the specific conditions of that test. In the example above, describe indicates we are talking about the Apartment and the method to add tenants. In the context block, the condition (when there is enough room for a tenant) is given.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +147,24 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+And ERD is a tool programmers use to visualize and describe the relationships between data that will exist in our programs. We create them to better plan out our database table structure before we begin to program. It does not describe behaviors of the items, just the attributes and relationships.
+
+Person:
+- name
+- has pets
+- has a lamp
+
+Pet:
+- name
+- species
+
+Lamp
+- color
+- has a genie
+
+genie
+- name
+- number of wishes available
 ```
 
 ### Question 7
@@ -142,7 +175,23 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A scheme in an SQL database is a blueprint for defining the columns a table will have. For each column it includes the column's name, the column's data type, and any constraints or rules that might be needed for that column.
+
+To represent a one-to-many relationship in an SQL database, we create a column that can be used to join the two tables together. Example:
+
+people
+-id
+- name
+
+wishes
+- id
+- the_wish
+- people_id
+
+From there, we can call the following:
+SELECT * FROM wishes JOIN people ON wishes.people_id = people.id;
+
+This will connect the two tables via their shared column and allow us to search through the one-to-many relationship.
 ```
 
 ### Question 8
@@ -167,5 +216,20 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+# 1.
+the_lamp = Lamp.create(wishes_remaining: 3)
+genie = Genie.create(name: "Genie")
+
+# 2. Wasn't sure if a lamp belonged to a genie or if a genie belonged to a lamp...
+lamp.update(genie: genie)
+
+# 3.
+lamp.update(wishes_remaining: 1)
+
+# 4.
+jafar = Genie.create(name: "Jafar")
+jafars_lamp = Lamp.create(wishes_remaining: 3, genie: jafar)
+
+# 5.
+the_lamp.delete
 ```
