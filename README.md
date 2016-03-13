@@ -25,7 +25,9 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose(person)
+  puts "Would you take this rose and help out and old beggar, #{person}"
+end
 ```
 
 ### Question 2
@@ -48,7 +50,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+belle = town[:residents].delete("Belle")
+town[:castle][:guests] << belle
 ```
 
 ### Question 3
@@ -70,7 +73,7 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each {|friend| puts "Belle is friends with #{friend}"}
 ```
 
 ## TDD and RSpec
@@ -81,8 +84,9 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
+Unit testing tests individual methods of your code. Use use unit tests to make sure every thing works in small steps. Functional testing tests larger main functions of your code, like actions a user might take.
 
-Replace this with your answer
+RSpec is a framework used for unit testing. We use 'describe' 'context' blocks for testing every aspect of every method of our code.
 ```
 
 ### Question 5
@@ -112,8 +116,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+'describe' and 'context' are interchangeable, but describe is used to define the 'units' we are testing in a particular block (i.e. the 'add_tenant' method above). 'context' is used to describe what parts of that method we are testing in a particular block.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +134,22 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An Entity Relationship Diagram (ERD) is a way of representing tables in a database. They are useful for applications because they help us visualize all of the relationships and properties of each table in the database and help in planning the connections between the entities.
+
+Genie
+  name
+  belongs_to: lamp
+  has_many: persons
+Lamp
+  name
+  belongs_to: person
+Person
+  name
+  wishes
+  has_many: pets
+Pet
+  name
+  belongs_to: person
 ```
 
 ### Question 7
@@ -142,7 +160,7 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is a set of rules used to define and build tables in a database. We can represent a one-to-many relationship by adding a column to connect the two entities. For example, one person has many wishes and in the wishes table we would add a column with the id of the person who has that wish. Now when we look up the wish, we can see which person that wish belongs to.
 ```
 
 ### Question 8
@@ -167,5 +185,17 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+lamp1 = Lamp.create(wishes_remaining: 3)
+genie = Genie.create(name: "Genie")
+
+genie.lamp = lamp1
+
+lamp1.update(wishes_remaining: 1)
+
+jafar = Genie.create(name: "Jafar")
+jafar.lamp = Lamp.create(wishes_remaining: 3)
+
+genie.lamp = 'nil'
+
+
 ```
