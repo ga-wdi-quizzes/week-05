@@ -25,7 +25,11 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose(person)
+  puts "Would you take this rose and help out an old beggar, #{person}?"
+end
+
+offerRose("young prince")
 ```
 
 ### Question 2
@@ -48,7 +52,11 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+#removing Belle from residents
+town[:residents].delete_at(1)  # new value is ["Maurice", "Gaston"]
+
+#adding Belle to guests
+town[:castle][:guests] << "Belle"  # new value is ["Belle"]
 ```
 
 ### Question 3
@@ -70,7 +78,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+    puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -81,8 +91,7 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
-
-Replace this with your answer
+Unit testing is beneficial for developers while coding because it's designed to test small portions of code whereas functional tests have a wider focus and may be more user specific, like confirming a form works. RSpec is considered unit testing.
 ```
 
 ### Question 5
@@ -112,8 +121,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+describe and context are basically the same but 'describe' is used to introduce new objects or methods (i.e, Apartment and add_tenant) whereas 'context' provides the circumstances prior to performing a test.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +139,28 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is a design tool that maps out a visual representation of entities defined in a database and their relationship to one another. We create ERD's to assist in planning out the information we need in our database.
+
+Genie
+- name
+- grants wishes
+- has_one :lamp
+
+Lamp
+- color
+- contains wishes
+- belongs_to :genie
+
+Person
+- name
+- makes wishes
+- has_many :pets
+
+Pet
+- name
+- species
+- color
+- belongs_to :person
 ```
 
 ### Question 7
@@ -142,7 +171,20 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is an outline used to create tables and their attributes within a database.
+
+CREATE TABLE people (
+- id SERIAL PRIMARY KEY,
+- first_name TEXT NOT NULL,
+- last_name TEXT NOT NULL
+);
+
+CREATE TABLE wishes (
+- id SERIAL PRIMARY KEY,
+- things_wished_for TEXT NOT NULL,
+- people_id INT
+);
+
 ```
 
 ### Question 8
@@ -167,5 +209,9 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
-```
+1. lamp = Lamp.create(wishes_remaining: 3)   genie = Genie.create(name: "Genie")
+2. genie.update(lamp: lamp)
+3. lamp.update(wishes_remaining: 1)
+4. jafar = Genie.create(name: "Jafar")   jafar_lamp = Lamp.create(wishes_remaining: 3)
+5. genie.update(lamp: nil)
+``
