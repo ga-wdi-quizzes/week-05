@@ -160,7 +160,7 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is a set of rules used to define and build tables in a database. We can represent a one-to-many relationship by adding a column to connect the two entities. For example, one person has many wishes and in the wishes table we would add a column with the id of the person who has that wish. Now when we look up the wish, we can see which person that wish belongs to.
 ```
 
 ### Question 8
