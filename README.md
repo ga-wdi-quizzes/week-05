@@ -26,14 +26,14 @@ Demonstrate calling the method with an argument of "young prince".
 Write your code here:
 ```ruby
 
-def offerRose (person)
+def offer_rose (person)
   puts "Would you take this rose and help out an old beggar, #{person}?"
 end
 
-offerRose("young prince")
+offer_rose("young prince")
 
 # The output of offerRose is `nil`, while the side effect is the `puts` statement
-# By convention, Ruby methods are defined using snake case (e.g, `offer_rose`) instead of camel case, as illustrated above
+# By convention, Ruby methods are defined using snake case (e.g, `offer_rose`) instead of camel case, as illustrated in the question
 
 ```
 
@@ -187,8 +187,8 @@ CREATE TABLE people (
 
 CREATE TABLE wishes (
   id SERIAL PRIMARY KEY,
-  number INTEGER,
-  people_id INTEGER
+  wish_content TEXT NOT NULL,
+  people_id INT NOT NULL
 );
 
 ```
@@ -215,5 +215,22 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+#1
+genie = Genie.create(name: "Genie")
+lamp = Lamp.create (wishes_remaining: 3)
+
+#2
+lamp.update(genie: genie)
+
+#3
+lamp.update (wishes_remaining: 1)
+
+#4
+jafar = Genie.create(name: "Jafar")
+new_lamp = Lamp.create(wishes_remaining: 3)
+new_lamp.update(genie: jafar)
+
+#5
+genie.update(lamp: nil)
+
 ```
