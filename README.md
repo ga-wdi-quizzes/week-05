@@ -185,5 +185,17 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+lamp1 = Lamp.create(wishes_remaining: 3)
+genie = Genie.create(name: "Genie")
+
+genie.lamp = lamp1
+
+lamp1.update(wishes_remaining: 1)
+
+jafar = Genie.create(name: "Jafar")
+jafar.lamp = Lamp.create(wishes_remaining: 3)
+
+genie.lamp = 'nil'
+
+
 ```
