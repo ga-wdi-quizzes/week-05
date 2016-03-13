@@ -196,5 +196,13 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+goldlamp = Lamp.create(wishes_remaining: 3)
+genie = Genie.create(name: "Genie", lamp_id: 1)
+
+goldlamp.update(wishes_remaining: 1)
+
+blacklamp = Lamp.create(wishes_remaining: 3)
+jafar = Genie.create(name: "Jafar", lamp_id: 2)
+
+goldlamp.destroy
 ```
