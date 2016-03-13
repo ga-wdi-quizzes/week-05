@@ -25,7 +25,12 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose(person)
+  puts "Would you take this rose and help out
+  an old beggar, #{person}?"
+end
+
+ offerRose("young prince")
 ```
 
 ### Question 2
@@ -48,7 +53,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town[:residents].delete("Belle")
+town[:castle][:guests] << "Belle"
 ```
 
 ### Question 3
@@ -70,7 +76,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |x|
+  puts "Belle is friends with #{x}"
+end
 ```
 
 ## TDD and RSpec
@@ -82,7 +90,9 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Functional tests check a particular feature for correctness
+Unit testing checks if a method has a specific output.
+RSpec is unit testing. It checks for specific outputs.
 ```
 
 ### Question 5
@@ -112,8 +122,8 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+describe wraps a bunch of test into one functionality
+contexts wraps test around the same state
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +141,11 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+Entity relationship diagram, we use to visualize and describe the data relating to the major entities that will exist in out programs.
+
+Person can have a pet and a genie
+
+Genie can also have a pet (theoretically) and have a lamp 
 ```
 
 ### Question 7
@@ -142,7 +156,10 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is a collection of logical structures of data
+belongs_to and has_many in active record
+but in regular sql we'd put a foreign key on the attribute to reference the primary key
+of that data in another table
 ```
 
 ### Question 8
@@ -167,5 +184,12 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+genie = Genie.create(name: "Genie")
+goldenlamp = Lamp.create(wishes: 3)
+goldenlamp.update(genie: genie)
+goldenlamp.update(wishes: 1)
+jafar = Genie.create(name: "Jafar")
+blacklamp = Lamp.create(wishes: 3)
+blacklamp.update(genie: jafar)
+genie.update(lamp: nil)
 ```
