@@ -158,6 +158,7 @@ Person
 Pet
 - name
 - species
+- color
 - belongs_to :person
 ```
 
