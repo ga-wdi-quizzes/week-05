@@ -116,8 +116,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+'describe' and 'context' are interchangeable, but describe is used to define the 'units' we are testing in a particular block (i.e. the 'add_tenant' method above). 'context' is used to describe what parts of that method we are testing in a particular block.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
