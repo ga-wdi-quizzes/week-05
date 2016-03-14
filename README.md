@@ -25,7 +25,12 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+
+def offerRose person
+  puts "Would you take this rose and help out an old beggar, #{person}?"
+end
+offerRose "young prince"
+
 ```
 
 ### Question 2
@@ -48,7 +53,10 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+
+town[:resident] - ["Belle"]
+town[:castle][:guests] << "Belle"
+
 ```
 
 ### Question 3
@@ -70,7 +78,11 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+
+friends.each do |friend|
+  puts "Belle is friends with #{friend}."
+end
+
 ```
 
 ## TDD and RSpec
@@ -80,9 +92,11 @@ Write your code here:
 Describe the differences between unit and functional testing. What type of testing is RSpec and why?
 
 Your answer:
-```text
+```Unit Tests test smaller components of code, such as a single method.
 
-Replace this with your answer
+Functional Tests test the functionality of a larger component of code, such as many methods at once.
+
+RSPEC is best for testing unit tests, for it allows a dev to individually test the very small components (i.e. spelling errors or mil arguments).
 ```
 
 ### Question 5
@@ -111,9 +125,7 @@ end
 ```
 
 Your answer:
-```text
-
-Replace this with your answer
+```According to the example above, "describe" is intended to test what exactly the method will do (in this case, add a tenant to the apartment that is an argument). Context tests a specific condition of a method, such as a tenant may be added to the apartment ONLY IF the number of beds available is greater than or equal to the number of tenants.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +143,17 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is an "Entity Relationship Diagram." It is basically a visual way to describe data and its relationship to each other. Key to ERDs is dependency, and visually showing what attributes are related to one another according to dependency.
+
+With regards to the example above:
+Person :name, :gender, :nationality
+The person may own a lamp and pet, and so they are all related
+  Lamp :material, :color
+  Pet :name, :gender, :species, :age
+The entity is the home of the Genie, and so the Person, Lamp, and Genie are definitely connected.
+A Pet may be dependent on its Person owner
+The Genie may be depending on its Person master
+  Genie :name, :gender, :species, :age, :power, :wishes
 ```
 
 ### Question 7
@@ -142,7 +164,19 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is a SQL file that creates tables in databases.
+
+According to the example above, the "one-to-many" describes the relationship between two entities of data (i.e. one person has many wishes).
+
+SCHEMA.SQL
+Wishes
+person_id INT
+
+PERSON.RB
+has_many :wishes
+
+WISHES.RB
+belongs_to :person
 ```
 
 ### Question 8
@@ -167,5 +201,12 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+
+genie = Genie.create(name: "Genie")
+genie.lamps.create(wishes_remaining: 3)
+lamp_good = Genie.find_by(name: "Genie").lamps
+lamp_good.update(wishes_remaining: 1)
+jafar = Genie.create(name: "Jafar")
+jafar.lamps.create(wishes_remaining: 3)
+lamp_good.update(wishes_remaining: nil)
 ```
