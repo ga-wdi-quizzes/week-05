@@ -25,7 +25,10 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose person
+  puts "Would you take this rose and help out an old beggar, #{person}?"
+end
+  offerRose "young prince"
 ```
 
 ### Question 2
@@ -48,7 +51,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+belle = town[:residents].delete "Belle"
+town[:castle][:guests] << belle
 ```
 
 ### Question 3
@@ -70,7 +74,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end  
 ```
 
 ## TDD and RSpec
@@ -82,7 +88,7 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit tests ensure that a method/function you have written works the way that it is intended to. It typically tests one method at a time A functional test ensures that the entire program works the way a user would expect it to. RSPEC is unit testing because we looked at each method individually and write tests to ensure that that specific method gives an output/ works!
 ```
 
 ### Question 5
@@ -112,8 +118,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+Describe provides information of what is being done-- ex. here is that the method describes adding a tenant to the apartment. Context explains the conditions for that method, in this example explaining that the tenant can be added only if there are enough beds, which is up to 3.  
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +136,9 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is an Entity Relationship Diagram. Its purpose is to demonstrate how data relates to other data in records. We create them in applications in order to show how attributes of one piece of data or one table might compare to data in another table, and we are able to connect the tables through common records.  
+
+With the entities above, a lamp would belong to a person, and a person could have multiple lamps, but a lamp would only belong to one person. The lamp could create a genie and the genie comes out of the lamp, and thus relates to the peron. The same goes for the person and the pet-- a person might have multiple pets, but a pet (typically) belongs only to one person.  The four might all relate because the same person could have both a lamp, which creates a genie, and a pet.
 ```
 
 ### Question 7
@@ -142,7 +149,7 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema explains what data, tables and records belong in a database, including what the tables are, how they relate and attributes each of the tables have. for instance, a person might have an id, name, and number of wishes-- it may have multiple wishes, but a wish table might have columns for the each wish's id, the id of the person the wish belongs to, what the wish is, and if it has come true.  The wish belongs only to one person, so you would include that person's id in the wish table in order to relate them in the database.  
 ```
 
 ### Question 8
@@ -167,5 +174,18 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+1.
+lamp = Lamp.create(wishes_remaining: 3)
+genie = Genie.create(name: 'Genie')
+2. #lamp will belong to the genie
+  lamp.update(genie: genie)
+
+3. lamp.update(wishes_remaining: 1)
+4.
+jafar = Genie.create(name: 'Jafar')
+jafarlamp = Lamp.create(wishes_remaining: 3)
+jafarlamp.update(genie: jafar)
+
+5. genie.update(lamp: nil)
+
 ```
