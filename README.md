@@ -25,7 +25,12 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+
+def offerRose(person)
+puts "Would you take this rose and help out and old beggar, #{person}"
+end
+
+offerRose("young prince")
 ```
 
 ### Question 2
@@ -48,7 +53,11 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+
+town[:residents].delete("Belle")
+town[:castle][:guests] << "Belle"
+
+
 ```
 
 ### Question 3
@@ -70,7 +79,11 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+
+friends.each do |friend|
+  puts "Bell ia friends with #{friend}"
+end
+
 ```
 
 ## TDD and RSpec
@@ -82,7 +95,8 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit testing checks the functionality of a specific (or singular) method. Functional testing is used for wider purposes; ex. to see if a sign-in form worked correctly. RSpec is a unit tester, because it takes the individual methods and makes sure it functions correctly.
+
 ```
 
 ### Question 5
@@ -113,7 +127,8 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+describe is used for classes and methods while context is used for conditionals
+
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +146,13 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+ERDs help programmers to visually see data and how it relates to the table columns that will be used. We use them for applications, because it helps us to understand how the data will be stored in the tables.
+
+Entity: Lamp; Attribute: Genie
+Entity: Person
+Entity: Pet
+Relationship: person can have many pets; pet can have one owner(person)
+Relationship: person can have one lamp; lamp can have many people
 ```
 
 ### Question 7
@@ -142,7 +163,8 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+Schemas are how the table for the data is made; it provides the categories the data will be stored in. It also (should) drop the any existing tables with the same name as the one to be created, which is the reason this command is before the creation of the table.
+
 ```
 
 ### Question 8
@@ -167,5 +189,18 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+
+1. genie = Genie.create(name: "Genie")
+good_lamp = Lamp.create(wishes_remaining: 3)
+
+2. genie = good_lamp.genies.update(name: "Genie")
+
+3. good_lamp.update(wishes_remaining: 1)
+
+4. jafar = Genie.create(name: "Jafar")
+evil_lamp = Lamp.create(wishes_remaining: 3)
+jafar = evil_lamp.genies.update(name: "Jafar")
+
+5. good_lamp.update(wishes_remaining: nil)
+
 ```
