@@ -25,7 +25,11 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose person
+  puts "Would you take this rose and help out and old beggar, Oliver_Twist"
+end
+
+
 ```
 
 ### Question 2
@@ -48,7 +52,12 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+
+town[:residents]delete.["Belle"]
+town[:castle][:guests]push.()"Belle")
+
+
+
 ```
 
 ### Question 3
@@ -70,7 +79,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -80,9 +91,17 @@ Write your code here:
 Describe the differences between unit and functional testing. What type of testing is RSpec and why?
 
 Your answer:
-```text
+Unit testing:It is specified for a certain part of the code.
 
-Replace this with your answer
+
+
+Functional Testing: it is a broad test of the entire code.
+
+Rspec is unit testing because it tests specific functions as they are created to ensure they are working properly before moving forward.
+
+```
+
+
 ```
 
 ### Question 5
@@ -112,8 +131,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+Describe - is the larger method that is being tested and Context is something that will happen as a result of the original Describe. Context is WITHIN the Apartment method - and is a test on a more specified action.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +149,12 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+Entitity Relationship Diagram (ERD) breaks down the relationships within a database and how everything is connected. Who is connected to what...
+
+Genie: has_one lamp
+Lamp: belongs_to genie
+Person: has_many wishes
+Pet: has_one owner
 ```
 
 ### Question 7
@@ -142,7 +165,7 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is the way a database is organized / a collection of objects.
 ```
 
 ### Question 8
@@ -167,5 +190,9 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+Lamp.create(wishes_remaining: 3)
+Genie.create(name: "Genie")
+lamp.update(wishes_remaining: 1)
+Genie.create(name: "Jafar")
+genie.update.(lamp: nil)
 ```
