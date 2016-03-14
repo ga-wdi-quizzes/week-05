@@ -138,7 +138,7 @@ Your answer:
 ```
 An ERD is an Entity Relationship Diagram. Its purpose is to demonstrate how data relates to other data in records. We create them in applications in order to show how attributes of one piece of data or one table might compare to data in another table, and we are able to connect the tables through common records.  
 
-With the entities above, a lamp would belong to a person, and a person could have multiple lamps, but a lamp would only belong to one person. The lamp could create a genie and the genie comes out of the lamp, and thus relates to the peron. The same goes for the person and the pet-- a person might have multiple pets, but a pet (typically) belongs only to one person.  The four might all relate because the same person could have both a lamp, which creates a genie, and a pet. 
+With the entities above, a lamp would belong to a person, and a person could have multiple lamps, but a lamp would only belong to one person. The lamp could create a genie and the genie comes out of the lamp, and thus relates to the peron. The same goes for the person and the pet-- a person might have multiple pets, but a pet (typically) belongs only to one person.  The four might all relate because the same person could have both a lamp, which creates a genie, and a pet.
 ```
 
 ### Question 7
@@ -149,7 +149,7 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema explains what data, tables and records belong in a database, including what the tables are, how they relate and attributes each of the tables have. for instance, a person might have an id, name, and number of wishes-- it may have multiple wishes, but a wish table might have columns for the each wish's id, the id of the person the wish belongs to, what the wish is, and if it has come true.  The wish belongs only to one person, so you would include that person's id in the wish table in order to relate them in the database.  
 ```
 
 ### Question 8
@@ -174,5 +174,18 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+1.
+lamp = Lamp.create(wishes_remaining: 3)
+genie = Genie.create(name: 'Genie')
+2. #lamp will belong to the genie
+  lamp.update(genie: genie)
+  
+3. lamp.update(wishes_remaining: 1)
+4.
+jafar = Genie.create(name: 'Jafar')
+jafarlamp = Lamp.create(wishes_remaining: 3)
+jafarlamp.update(genie: jafar)
+
+5. genie.update(lamp: nil)
+
 ```
