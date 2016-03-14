@@ -118,8 +118,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+Describe provides information of what is being done-- ex. here is that the method describes adding a tenant to the apartment. Context explains the conditions for that method, in this example explaining that the tenant can be added only if there are enough beds, which is up to 3.  
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -137,7 +136,9 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is an Entity Relationship Diagram. Its purpose is to demonstrate how data relates to other data in records. We create them in applications in order to show how attributes of one piece of data or one table might compare to data in another table, and we are able to connect the tables through common records.  
+
+With the entities above, a lamp would belong to a person, and a person could have multiple lamps, but a lamp would only belong to one person. The lamp could create a genie and the genie comes out of the lamp, and thus relates to the peron. The same goes for the person and the pet-- a person might have multiple pets, but a pet (typically) belongs only to one person.  The four might all relate because the same person could have both a lamp, which creates a genie, and a pet. 
 ```
 
 ### Question 7
