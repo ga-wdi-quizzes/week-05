@@ -88,7 +88,7 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit tests ensure that a method/function you have written works the way that it is intended to. It typically tests one method at a time A functional test ensures that the entire program works the way a user would expect it to. RSPEC is unit testing because we looked at each method individually and write tests to ensure that that specific method gives an output/ works!
 ```
 
 ### Question 5
@@ -179,7 +179,7 @@ lamp = Lamp.create(wishes_remaining: 3)
 genie = Genie.create(name: 'Genie')
 2. #lamp will belong to the genie
   lamp.update(genie: genie)
-  
+
 3. lamp.update(wishes_remaining: 1)
 4.
 jafar = Genie.create(name: 'Jafar')
