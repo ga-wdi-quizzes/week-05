@@ -25,7 +25,10 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose person
+    puts "Would you take this rose and help out an old beggar, #{person}?"
+end
+offerRose "young prince"
 ```
 
 ### Question 2
@@ -48,7 +51,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town[:residents].delete("Belle")
+town[:castle][:guests] << "Belle"
 ```
 
 ### Question 3
@@ -70,7 +74,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+    puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -81,8 +87,10 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
+Functional tests are written with the user in mind, to test pieces of functionality.
 
-Replace this with your answer
+Unit tests are written to test each method of the program written by the developer, to
+assure it produces the expected output based on its input.
 ```
 
 ### Question 5
@@ -112,8 +120,8 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+Here, `describe` is used to specify classes and methods, where `context` is used
+to specify a condition within a method to run tests against.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +139,23 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is a modeling technique to show the objects/entities of a data system
+and the relationships between those objects.
+
+A person might have a name, age, or any other human attribute.
+
+A person may or may not have a pet, which is dependant on having a person as
+its owner.  A pet might have a name, species, etc.
+
+A lamp might belong to a person, but without knowing if it's a magic lamp
+(see Genie) it would be simply classified as an object of furniture that's
+also a member of a room, which is a member of a building, or the data might
+not need those classifactions.
+
+A Genie could be a type of person that has magical powers.  A genie could
+also be a property of a magic lamp, which might be a property of a non-magical
+person.
+
 ```
 
 ### Question 7
@@ -142,7 +166,14 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is the structure and relationships of data layed out as instructions for
+how to build a particular database.
+
+One-to-many relationships can be constructed by sharing an id number of the object
+that has many other objects.
+
+person: person_id, name, age
+wishes: wish_id, description, person_id
 ```
 
 ### Question 8
@@ -153,6 +184,7 @@ Replace this with your answer
 3. You have active record models defined for `Genie` and `Lamp`, and the
 relationships between the two are set up in Active Record.
 <!-- Do we want to specifiy what kind of relationship they have, in case some students aren't familiar with the mythology...? -->
+<!-- I say yes. Googling the rules of genie/lamp relationships in the scope of Aladdin (a film I last saw when I was 10) seems to distract from the exercise while feeling left in the dark, and so I'm just guessing it can only ever be a one-to-one relationship.-->
 4. Lamps have one property, `wishes_remaining`, and genies have one property, `name`.
 
 Write code to do the following:
@@ -167,5 +199,12 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+initial_wishes = 3
+some_lamp = Lamp.create(wishes_remaining: initial_wishes)
+good_genie = Genie.create(name: "Genie")
+some_lamp.update(genie: good_genie)
+some_lamp.update(wishes_remaining: 1)
+jafar = Genie.create(name: "Jafar")
+jafar_lamp = Lamp.create(wishes_remaining: initial_wishes, genie: jafar)
+good_genie.update(wishes_remaining: nil)
 ```
