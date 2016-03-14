@@ -51,8 +51,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-var a = town[0][1]
-town(castle[3].push(a)
+var a = town[:residents][1]
+town[:castle][:guest].push(a)
 # look this up
 ```
 
@@ -83,7 +83,7 @@ friends.each do |friend|
   friends.reverse.each do |friendr|
   puts "#{friend}is friends with#{friendr}"
 end
-
+# end
 ```
 
 ## TDD and RSpec
@@ -94,8 +94,11 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
+Unit testing is mainly by developers to test each method in an application code to make sure they satisfy the business requirement.
 
-Replace this with your answer
+Functional testing is mainly used by QA to ensure that a software conforms with business requirement.
+
+Unit testing usually done in REPL or terminal while Functional testing is usually done on the GUI.
 ```
 
 ### Question 5
@@ -125,8 +128,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+The difference between Describe and Context method is mainly contextual: context method is used within describe method for easy readability and understanding.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -144,7 +146,26 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+Person
+person has a pet
+person has a lamp
+person has_many wishes
+
+Pet
+pet belongs_to person
+
+Lamp
+lamp belongs_to person
+lamp has a genie
+
+Genie
+genie belongs_to lamp
+genie grants 3 wishes
+
+wishes
+wishes belongs_to person
+
+
 ```
 
 ### Question 7
@@ -155,7 +176,15 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+Schema is an outline of entities or values in model(s) and possible relationships between models in a database.
+class Person
+has_many :wishes
+end
+
+class wish
+belongs_to :person
+end
+
 ```
 
 ### Question 8
