@@ -179,7 +179,8 @@ A schema is used in databases to show the databases information. It gives inform
 
 one to many: An entity that has many relationships
 
-CREATE TABLE wisher (
+
+CREATE TABLE people (
   id SERIAL PRIMARY KEY,
   name TEXT,
   current city TEXT,
@@ -192,6 +193,16 @@ CREATE TABLE wishes (
   wish TEXT
   wisher_id INTEGER
 );
+
+In model:
+
+class Wishes < ActiveRecord::Base
+belongs_to :people
+end
+
+class People < ActiveRecord::Base
+has_many :wishes
+end
 ```
 
 ### Question 8
