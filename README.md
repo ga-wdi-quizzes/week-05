@@ -25,7 +25,10 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose(person)
+  puts "Would you take this rose and help out an old beggar, #{person}?"
+end
+offerRose("young prince")
 ```
 
 ### Question 2
@@ -48,7 +51,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+belle = town[:residents].delete("Belle")
+town[:castle][:guests].push("Belle")
 ```
 
 ### Question 3
@@ -70,7 +74,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+ puts "Belle is friends with #{friend}."
+end
 ```
 
 ## TDD and RSpec
@@ -81,8 +87,7 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
-
-Replace this with your answer
+Unit testing tests small pieces of code at a time (methods).  Functional testing tests user input and is from the perspective of the end user.  RSpec testing is considered unit testing because it is looking to verify specific outputs from various methods throughout the program.
 ```
 
 ### Question 5
@@ -112,8 +117,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+In this example, 'describe' is used to test the output of a specific method (add_tenant), while 'context' is used to define a specific condition.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -130,8 +134,8 @@ entities (no need to draw an ERD):
 * Pet
 
 Your answer:
-```
-Replace this with your answer
+```text
+ERD stands for Entity Relationship Diagram.  An ERD is a tool that's used to visualize how data relate to one another within the structure of a database program.  One genie might have lived in many lamps, and one person might have possession of many lamps.  Also, one lamp may have many (past) owners, and one genie can have granted wishes to many people.
 ```
 
 ### Question 7
@@ -141,8 +145,8 @@ SQL database. If you need an example, you can use: people and wishes
 (one-to-many).
 
 Your answer:
-```
-Replace this with your answer
+```text
+Schema define the attributes that belong to an object, which are represented in SQL databases as tables and column headers.  To represent a 'one-to-many relationship, we can make use of an ID that is specific to the one.  In the table containing wishes, we can add a column containing the ID for the person each with belongs to.
 ```
 
 ### Question 8
@@ -167,5 +171,13 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+lamp = Lamp.new(wishes_left:3)
+genie = Genie.new("Genie")
+lamp.update(genie:genie)
+lamp.update(wishes_remaining:1)
+jafar = Genie.new("Jafar")
+newLamp = Lamp.new(wishes_left:3)
+newLamp.update(genie:jafar)
+newLamp.update(genie:nil)
+
 ```
