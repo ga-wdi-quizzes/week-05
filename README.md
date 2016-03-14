@@ -25,7 +25,11 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose(person)
+  puts "Would you take this rose and help out an old beggar, #{person}?"
+end
+
+offerRose("young prince")
 ```
 
 ### Question 2
@@ -48,7 +52,7 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town[:castle][:guests] << town[:residents].delete("Belle")
 ```
 
 ### Question 3
@@ -70,7 +74,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |i|
+  puts "Belle is friends with #{i}"
+end
 ```
 
 ## TDD and RSpec
@@ -82,7 +88,7 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit tests a individual method in our code to verify it is producing the intended results.  Functional testing tests a slice of our code to verify it is functioning as expected.  RSpec is unit because it verifies our objects and methods are performing as intended.
 ```
 
 ### Question 5
@@ -113,7 +119,8 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+describe is what we are currently testing.
+context is how we are testing what has been described.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +138,21 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is an Entity Relationship Diagram.
+It allows us to visually represent and describe the data that we will be utilizing and manipulating in a program.
+
+Entities are not required to have a relationship. So there could be a entity with no relation to any other.
+In this example thought, I would see the relationships as so.
+
+A person has a one to many relationship with pets.
+A person can have many pets, but a pet can only belong to one person.
+
+A Genie has a one to one relationship with their lamp.
+A lamp can only have one genie, and a genie can only have one lamp.
+
+A person also has a one to many relationship with lamps.
+A person can have many lamps, but a lamp can only belong to one person.  
+A lamp isn't required to belong to a person though.  It can exist without an owner.
 ```
 
 ### Question 7
@@ -142,7 +163,12 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+Schema describes the columns of our database tables.  It describes the column's name, data type, and any rules
+or constraints.
+An example of the one to many relationship using people and wishes:
+Every entry in the wishes table would have a column that contains the id of the person who made the wish.
+Only one ID can be contained in this column, which means this wish can only belong to the person indicated.
+Multiple wishes can use the same person's ID however, which means that a person can make many wishes.
 ```
 
 ### Question 8
@@ -167,5 +193,10 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+g_lamp = Lamp.create(wishes_remaining: 3)
+genie = Genie.create(name: "Genie", lamp_id: g_lamp.id)
+g_lamp.wishes_remaining = 1
+j_lamp = Lamp.create(wishes_remaining:3)
+jafar = Genie.create(name: "Jafar", lamp_id: j_lamp.id)
+genie.lamp_id = nil
 ```
