@@ -25,7 +25,10 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose(person)
+  puts "Would you take this rose and help out an old beggar, #{person}?"
+end
+offerRose("Young Price")
 ```
 
 ### Question 2
@@ -48,7 +51,10 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+
+town[:residents].delete "Belle"
+town[:castle][:guests].push("Belle")
+
 ```
 
 ### Question 3
@@ -70,7 +76,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is freinds with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -82,7 +90,7 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit testing is what we do to check and test a specific method. Functional testing would check the entire scope of the application which would include several methods. RSpec is an example of Unit testing because it allows us to test each and every method separately.
 ```
 
 ### Question 5
@@ -113,7 +121,7 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+'Describe', much like it's name tells us 'what' the particular method we're testing is. While 'Context' explains 'when' said method should run.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +139,29 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD (Entity-Relationship Diagram), is a visual representation of entities and their relationships. We use them to illustrate the logical structure of databases.
+Lamp:
+  1. Lamp ID (Primary key)
+  2. wishes
+  3. Genie ID (foreign key)
+- belongs to 1 Genie
+- links to Genie table with the foreign key.
+
+Genie:
+  1. Genie ID (Primary key)
+  2. name of Genie
+- belongs to 1 Lamp
+
+Person:
+  1. Person ID (Primary key)
+  2. name of Person
+  3. Lamp ID (foreign key)
+  4. wishes
+- links to Lamp table using foreign key.
+- can have multiple wishes (3 max)
+
+Pet:
+"Not sure what characteristics were meant for this table since a pet doesn't really have a pre-defined relationship with the other tables."
 ```
 
 ### Question 7
@@ -142,7 +172,7 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A Schema is a file we use to define what type of data should be in a particular table, sort of like a blueprint. A Schema is what would tell our DB that the table "People" will have a column for the elements Name, Unique ID, Lamp's ID and Wishes. It would also pre define that a "Wishes" table would have columns for a Unique ID, Person ID and Wishes. These 2 tables have a One-to-Many relationship because a Person can have may wishes but in this example a wish can only have one person.
 ```
 
 ### Question 8
@@ -157,7 +187,7 @@ relationships between the two are set up in Active Record.
 
 Write code to do the following:
 
-1. Create a lamp with 3 wishes remaining and a genie named 'Genie'
+1. Create a lamp with 3 wishes remaining and a genie named 'Genie'    
 2. Create a relationship between 'Genie' and the lamp.
 3. Update the lamp so it only has one wish left.
   * Oh no... Jafar has Aladdin! Thankfully he's wished to become a genie himself!
@@ -167,5 +197,16 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+1. genie = Genie.create(name: "Genie")
+   lamp = Lamp.create (wishes_remaining: 3)
+
+2. 
+
+3. lamp.update (wishes_remaining: 1)
+
+4. jafar = Genie.create(name: "Jafar")
+   jafarsLamp = Lamp.create (wishes_remaining: 3)
+
+5.
+
 ```
