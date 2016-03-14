@@ -25,7 +25,12 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offer_rose person
+  puts "Would you take this rose and help out
+  an old beggar, #{person}?"
+end
+
+offer_rose('young prince')
 ```
 
 ### Question 2
@@ -48,7 +53,9 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+
+town[:castle][:guests] << town[:residents][1]
+town[:residents].delete "Belle"
 ```
 
 ### Question 3
@@ -70,7 +77,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -82,7 +91,7 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+RSpec is unit testing because it tests each individual method(unit) individually rather than the functionality of the program as a whole
 ```
 
 ### Question 5
@@ -112,8 +121,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+describe refers to testing method functionality, while context describes different scenarios in which the method should succeed
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +139,11 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+an ERD is a way to visualize Databases and the relationships between the contained tables. ex:
+person has many pets, pet belongs to person.
+person has one lamp, lamp belongs to person.
+lamp has one genie, genie belongs to lamp.
+pet has no relationship with genie or lamp.
 ```
 
 ### Question 7
@@ -141,8 +153,14 @@ SQL database. If you need an example, you can use: people and wishes
 (one-to-many).
 
 Your answer:
-```
-Replace this with your answer
+```ruby
+class people < ActiveRecord::base
+  has_many wishes
+end
+
+class wish < ActiveRecord::base
+  belongs_to person
+end
 ```
 
 ### Question 8
@@ -167,5 +185,12 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+genie = Genie.create(name:'Genie')
+lamp = Lamp.create(wishes_remaining:3)
+lamp.update(genie:'Genie')
+lamp.update(wishes_remaining:1)
+jafar = Genie.create(name:'Jafar')
+jaf_lamp = Lamp.create(wishes_remaining:3)
+genie.update(lamp:nil)
+
 ```
