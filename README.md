@@ -25,7 +25,13 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+
+def offerRose (person)
+puts "Would you take this rose and help out an old beggar, #{person}?"
+end  
+
+offerRose(young prince)
+
 ```
 
 ### Question 2
@@ -48,7 +54,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town[:residents].delete("Belle")
+town[:guests] = "Belle"
 ```
 
 ### Question 3
@@ -70,7 +77,11 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+
+friends.each do |name|
+puts "Belle is friends with " + name  
+end
+
 ```
 
 ## TDD and RSpec
@@ -80,9 +91,13 @@ Write your code here:
 Describe the differences between unit and functional testing. What type of testing is RSpec and why?
 
 Your answer:
-```text
+```
+Unit tests test a specific method. It makes sure specific inputs result in specific outputs. For example, if the user's phone number should always include numbers, then you may create a unit text on that method to make sure the output always has a float as its output. otherwise the test will fail. These smaller test are more important than the larger tests such as functional.
 
-Replace this with your answer
+Functional testing focuses on a much larger scope and is good for the overall function such as site/database permission. Functional tests can also execute and modify the state of the system you are testing you must be careful.
+
+Rspec allows you to write specifications about your code and test them. Rspec is Ruby's testing framework that makes it easier to write tests.
+
 ```
 
 ### Question 5
@@ -111,9 +126,12 @@ end
 ```
 
 Your answer:
-```text
+```
+describe and context are typically the same in the sense that there's no functional difference but how they are used allows the tests to be more understandable. The purpose of describe is to wrap a set of tests against one functionality. It's usually at the top level. I like to think of it as the introduction to a text like its name or description.
 
-Replace this with your answer
+context wraps a set of tests  under describe that wraps a text for methods under the same state. I think of this as a unique instance to the top level test. For example,
+
+you will DESCRIBE "greeting" as the title and the context is how you will greet if in english specifically. It's still related to greeting but it's a specific context of the greeting that needs to be tested.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +149,17 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is an Entity Relationship Diagram that shows a visual relationship  between the major components that exist within our database. It allows us to plan out its structure and to see how things relate along with its dependencies.
+
+
+For the example above, first we have to see how these things relate and what is dependent upon the other.
+
+I would put the dependencies in order as follows:
+
+Lamp ---->
+Genie----> (the Genie needs the lamp and the lamp needs the genie. But without the genie, the lamp would have no powers)
+Person----> The lamp is dependent upon a person to find it and rub it for it to work.
+pet----> The pet is not needed in this diagram at all but the person could need the pet but it's not needed for the lamp to manifest it's powers through the genie and person.
 ```
 
 ### Question 7
@@ -142,7 +170,9 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is the organization or structure of a database. It's how objects relate to each other within a structure. We have experienced this in class with tables in Active Record of classes we defined. For example, Table (class) name is Students and each student has its own row with its age, nationality, major, and year as the tables columns.
+
+
 ```
 
 ### Question 8
