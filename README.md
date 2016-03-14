@@ -195,8 +195,10 @@ Write your code here:
 ```ruby
 g_lamp = Lamp.create(wishes_remaining: 3)
 genie = Genie.create(name: "Genie", lamp_id: g_lamp.id)
-g_lamp.wishes_remaining = 1
+g_lamp(.wishes_remaining = 1)
+g_lamp.save
 j_lamp = Lamp.create(wishes_remaining:3)
 jafar = Genie.create(name: "Jafar", lamp_id: j_lamp.id)
 genie.lamp_id = nil
+genie.save
 ```
