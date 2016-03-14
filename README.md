@@ -24,8 +24,12 @@ an old beggar, X?", where X is the person passed into the method.
 Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
-```ruby
-# code here
+```
+def offerRose person
+  puts "Would you take this rose and help out an old beggar, #{person}?"
+end
+
+person "young prince"
 ```
 
 ### Question 2
@@ -47,8 +51,13 @@ Using Ruby, remove Belle from the town residents, and
 add her to the list of guests in the castle.
 
 Write your code here:
-```ruby
-# code here
+```
+people = town[:residents]
+home = town[:castle]
+belle = people.delete_at(1)
+home.guests.push(belle)
+
+
 ```
 
 ### Question 3
@@ -69,8 +78,9 @@ Belle is friends with Mrs. Potts
 ```
 
 Write your code here:
-```ruby
-# code here
+```
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
 ```
 
 ## TDD and RSpec
@@ -80,9 +90,10 @@ Write your code here:
 Describe the differences between unit and functional testing. What type of testing is RSpec and why?
 
 Your answer:
-```text
+```
+Unit tests the functionality of individual methods.  Functional testing tests the overall functionality of software.
 
-Replace this with your answer
+RSpec is a unit testing system for test driven development.  It's domain specific and makes testing code easier.  
 ```
 
 ### Question 5
@@ -111,9 +122,8 @@ end
 ```
 
 Your answer:
-```text
-
-Replace this with your answer
+```
+The two mostly do the same thing but are used to add greater specificity to tests.  Describe shows a set of tests for a certain functionality and context denotes a more specific functionality within the 'context' of the overall test started by describe.  
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +141,7 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is an entity relationship model.  We create them for applications because they help plan relationships for database tables.  They help us implement relationships between data in apps.
 ```
 
 ### Question 7
@@ -142,7 +152,7 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is a mapping of a table for a database.  We represent a one to many relationship in a SQL database by adding foreign keys to a table.  the addition of foreign keys shows a one-to-many relationship.  For instance, there could be a table of teams in a soccer league and a table also representing individual players on those teams.  Each team would have multiple players, but each player would only have one team.  The players table would have a row pointing to what team a player belongs to.   
 ```
 
 ### Question 8
@@ -158,14 +168,35 @@ relationships between the two are set up in Active Record.
 Write code to do the following:
 
 1. Create a lamp with 3 wishes remaining and a genie named 'Genie'
+
 2. Create a relationship between 'Genie' and the lamp.
+
 3. Update the lamp so it only has one wish left.
   * Oh no... Jafar has Aladdin! Thankfully he's wished to become a genie himself!
+
 4. Create a new Genie named 'Jafar' and put him in a new lamp with 3 wishes left.
+
 5. Free the good Genie by setting his lamp to `nil`
 
 
 Write your code here:
-```ruby
-# code here
+```
+
+myLamp = Lamp.create(wishe_remaining: 3)
+myGenie = Genie.create(name: 'Genie')
+
+class Genie < ActiveRecord::Base
+  belongs_to :lamp
+end
+
+class Lamp <ActiveRecord::Base
+  belongs_to :genie
+end
+
+myLamp.update(wishes_remaining: 1)
+
+jafar = Genie.create(name: 'Jafar', lamp_id: 1)
+jafars_lamp = Lamp.create(wishes_remaining: 3)
+
+jafar.update(lamp_id: nil)
 ```
