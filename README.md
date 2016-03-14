@@ -53,14 +53,7 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-town = {
-  residents: ["Maurice", "Belle", "Gaston"],
-  castle: {
-    num_rooms: 47,
-    residents: "Robby Benson",
-    guests: []
-  }
-}
+town[:castle][:guests] << town[:residents][1]
 ```
 
 ### Question 3
