@@ -90,7 +90,7 @@ Your answer:
 Functional tests are written with the user in mind, to test pieces of functionality.
 
 Unit tests are written to test each method of the program written by the developer, to
-assure it produces the expected output based on its input.
+assure it produces the expected output based on its input under various conditions.
 ```
 
 ### Question 5
@@ -184,7 +184,7 @@ wishes: wish_id, description, person_id
 3. You have active record models defined for `Genie` and `Lamp`, and the
 relationships between the two are set up in Active Record.
 <!-- Do we want to specifiy what kind of relationship they have, in case some students aren't familiar with the mythology...? -->
-<!-- I say yes. Googling the rules of genie/lamp relationships in the scope of Aladdin (a film I last saw when I was 10) seems to distract from the exercise while feeling left in the dark, and so I'm just guessing it can only ever be a one-to-one relationship.-->
+<!-- I say yes to the above comment's question -->
 4. Lamps have one property, `wishes_remaining`, and genies have one property, `name`.
 
 Write code to do the following:
