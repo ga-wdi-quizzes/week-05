@@ -25,7 +25,14 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose person
+  puts "Would you take this rose and help out an old beggar, #{person}"
+end
+
+offerRose "young prince"
+
+
+
 ```
 
 ### Question 2
@@ -48,7 +55,9 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+
+Belle =town [:residents].delete "Belle"
+town[:castle][:guests].push(Belle)
 ```
 
 ### Question 3
@@ -70,7 +79,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+
+friends.each do |buddy|
+  puts "Belle is, like, super best pals with #{buddy}."
 ```
 
 ## TDD and RSpec
@@ -82,7 +93,11 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit testing tests the smallest testable parts of an app.  They are tested one at at time under specific parameters.
+
+Functional testing is usually made up of many parts and those parts, usually methods, check for a certain kind of functionality in a program or app.
+
+RSpec (I think) is unit testing.
 ```
 
 ### Question 5
@@ -113,7 +128,9 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+"describe" is telling you what the object called "Apartment" is supposed to do and how it will be tested.
+
+"context" explains the...er...context under which the thing being tested is being tested. It clarifies the situation in which these specific parameters are being called into play and therefore tested.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -131,7 +148,33 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+ERD stands for "Entity Relationship Diagram" and it is usually a kind of drawing or graph that illustrates the relationships between different sets of data in a database. As in "one X can have many Ys" or "one Y belongs to one Z"
+
+Genie
+  name
+  theme_song
+  has_many :wishes
+  belongs_to :lamp
+  lamp_id
+
+Lamp
+  genie_id
+  color
+  belongs_to :person
+  number_of_rubs
+  person_id
+
+Person
+  name
+  lamp_id
+  wish_id
+
+Wish
+  belongs_to :genie
+  genie_id
+  effect
+
+
 ```
 
 ### Question 7
@@ -142,7 +185,22 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is kept in a file and it defines the tables and rows in a database. Here is one from my "moma" homework:
+
+DROP TABLE IF EXISTS artists;
+DROP TABLE IF EXISTS paintings;
+
+CREATE TABLE artists (
+  id SERIAL PRIMARY KEY,
+  name TEXT,
+  nationality TEXT
+);
+
+CREATE TABLE paintings (
+  id SERIAL PRIMARY KEY,
+  title TEXT,
+  artist_id INT
+);
 ```
 
 ### Question 8
@@ -167,5 +225,15 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+X = Lamp.create(wishes_remaining: 3)
+
+Y = Genie.create(name:"Genie")
+lamp.update(genie: Y)
+
+lamp.update(wishes_remaining: 1)
+Z = Genie.create(name: "Jafar")
+newlamp = Lamp.create(wishes_remaining: 3)
+newlamp.update(genie: Z)
+genie.update(lamp: nil)
+
 ```
