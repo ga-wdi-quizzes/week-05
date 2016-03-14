@@ -25,7 +25,15 @@ Demonstrate calling the method with an argument of "young prince".
 
 Write your code here:
 ```ruby
-# code here
+def offerRose(person)
+  puts "Would you take this rose and help out an old beggar,#{person}"
+end
+return offerRose("young prince")
+
+
+
+
+
 ```
 
 ### Question 2
@@ -48,7 +56,12 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+
+town[:residents].delete("Belle")
+town[:castle][:guests].push("Belle")
+
+
+
 ```
 
 ### Question 3
@@ -70,7 +83,14 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+
+friends = ["Chip Potts", "Cogsworth", "Lumière", "Mrs. Potts"]
+friends.each do |friend|
+puts "Belle is friends with #{friend}"
+end
+
+
+
 ```
 
 ## TDD and RSpec
@@ -82,7 +102,9 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+
+Rspec is unit test because unit testing is design to test little block of code at a time(one method at a time). they are useful for developers.  Functional test is design to test the functionality of the whole app or program.
+
 ```
 
 ### Question 5
@@ -112,6 +134,7 @@ end
 
 Your answer:
 ```text
+'describe' and 'context' do the same thing functionally. In this case, 'describe' is pointing the method called 'add_tenant' versus 'context' runs the scenario.
 
 Replace this with your answer
 ```
@@ -131,7 +154,17 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+
+An Entity Relationship Diagram (ERD) is a tool to visualize and describe the data relating to the major entities that will exist in out programs.
+
+Person: name, pets, lamp
+Pet : name, species
+Lamp : genie
+Genie : name, wishes
+
+
+
+
 ```
 
 ### Question 7
@@ -142,7 +175,15 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is an outline of what kind of data tables will contain. It defines how the data is organized and what the relationships between the data. We use foreign key on the "many" side that links back to the "one" side to create a one to many relationship.
+
+people: person_id, name, age
+wishes: id, the_wish, person_id
+
+
+
+
+
 ```
 
 ### Question 8
@@ -167,5 +208,26 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
-# code here
+1.
+lamp = Lamp.create(wishes_remaining: 3)
+genie = Genie.create(name: "Genie")
+2.
+lamp.update(genie: genie)
+3.
+lamp.update(whishes_remaining: 1)
+4.
+jafar = Genie.create(name: "Jafar")
+jafar_lamp = Lamp.create(wishes_remaining: 3)
+jafar_lamp.update(genie: jafar)
+5.
+genie.update(lamp: nil)
+
+
+
+
+
+
+
+
+
 ```
