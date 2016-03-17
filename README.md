@@ -123,7 +123,6 @@ Replace this with your answer
 Describe what an ERD is, and why we create them for applications. Also give an
 example what the attributes and relationships might be for the following
 entities (no need to draw an ERD):
-<!-- Maybe clarify whether they're meant to give relationships between all four entities or... -->
 * Genie
 * Lamp
 * Person
@@ -152,7 +151,6 @@ Replace this with your answer
 2. You have a working connection to the database for ActiveRecord.
 3. You have active record models defined for `Genie` and `Lamp`, and the
 relationships between the two are set up in Active Record.
-<!-- Do we want to specifiy what kind of relationship they have, in case some students aren't familiar with the mythology...? -->
 4. Lamps have one property, `wishes_remaining`, and genies have one property, `name`.
 
 Write code to do the following:
