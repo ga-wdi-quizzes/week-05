@@ -16,12 +16,11 @@ or the language specifier after them.
 
 ### Question 1
 
-Define a method called `offerRose`, which should take one argument named person.
+Define a method called `offer_rose`, which should take one argument named `person`.
 
-When called, the method should `puts`, "Would you take this rose and help out
-an old beggar, X?", where X is the person passed into the method.
+When called the method should `puts` "Would you take this rose, `person`, in exchange for giving an old beggar woman shelter from the bitter cold?"
 
-Demonstrate calling the method with an argument of "young prince".
+Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
