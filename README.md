@@ -24,7 +24,10 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
-# code here
+def offer_rose (person)
+  puts
+end
+"Would you take this rose" + offer_rose + "in exchange for giving an old beggar woman shelter from the bitter cold?"
 ```
 
 ### Question 2
@@ -47,7 +50,14 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town = {
+  residents: ["Maurice", "Gaston"],
+  castle: {
+    num_rooms: 47,
+    residents: "Robby Benson",
+    guests: ["Belle"]
+  }
+}
 ```
 
 ### Question 3
@@ -55,10 +65,7 @@ Write your code here:
 Assume you have an array of strings representing friend's names:
 
 ```ruby
-friends = ["Chip Potts", "Cogsworth", "Lumière", "Mrs. Potts"]
-```
-
-Using `.each` AND string interpolation, produce output (using `puts`) like so:
+friends = ["Chip Potts", "Cogsworth", "Lumière", "Mrs. Potts"] interpolation, produce output (using `puts`) like so:
 
 ```
 Belle is friends with Chip Potts
@@ -66,10 +73,15 @@ Belle is friends with Cogsworth
 Belle is friends with Lumière
 Belle is friends with Mrs. Potts
 ```
+def
+  "Belle is friends with" + "friends[0]" + "."
+  "Belle is friends with" + "friends[1]" + "."
+  "Belle is friends with" + "friends[2]" + "."
+  "Belle is friends with" + "friends[3]" + "."
+end
+```
 
-Write your code here:
-```ruby
-# code here
+
 ```
 
 ## TDD and RSpec
@@ -79,7 +91,7 @@ Write your code here:
 Describe the differences between unit and functional testing. What type of testing is RSpec and why?
 
 Your answer:
-```text
+```Unit tests test out individual units, such as class methods within a function. Functional tests are written with the user's perspecitve in mind; they conform that the system does what hte user expects it to do, from end to end.  RSpec is the defacto testing framework of Ruby. We use it to make it easier to write tests. Moreover, it is a Domain Specific Language (solves problems within a specific domain). We can write live specifications about our code with it.
 
 Replace this with your answer
 ```
@@ -110,8 +122,7 @@ end
 ```
 
 Your answer:
-```text
-
+```“Describe” wraps a set of tests against one functionality. “Context” wraps a set of tests against one function under the same state.
 Replace this with your answer
 ```
 
