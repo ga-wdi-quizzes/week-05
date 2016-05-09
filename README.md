@@ -93,7 +93,6 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```Unit tests test out individual units, such as class methods within a function. Functional tests are written with the user's perspecitve in mind; they conform that the system does what hte user expects it to do, from end to end.  RSpec is the defacto testing framework of Ruby. We use it to make it easier to write tests. Moreover, it is a Domain Specific Language (solves problems within a specific domain). We can write live specifications about our code with it.
 
-Replace this with your answer
 ```
 
 ### Question 5
@@ -122,7 +121,7 @@ end
 ```
 
 Your answer:
-```“Describe” wraps a set of tests against one functionality. “Context” wraps a set of tests against one function under the same state.
+```“Describe” wraps a set of tests against one functionality or method. “Context” wraps a set of tests against one function under the same state.
 Replace this with your answer
 ```
 
@@ -139,7 +138,11 @@ entities (no need to draw an ERD):
 * Pet
 
 Your answer:
-```
+``` An Entity Relationship Diagram a tool used to visualize data and describe the data relating to the major entities that will exist in a program. We use them to plan out the creation of database table structures. Data is isolated from behavior.
+Person has_many Pets
+Pet belongs_to person
+Genie has_many Lamps
+Lamp belongs_to Genie
 Replace this with your answer
 ```
 
@@ -150,7 +153,9 @@ SQL database. If you need an example, you can use: people and wishes
 (one-to-many).
 
 Your answer:
-```
+``` A schema is a ruby file that defines the structure of an application's database. ActiveRecord keeps the schema up-to-date each time we run rake db:migrate.
+people has_many wishes
+wishes belongs_to people
 Replace this with your answer
 ```
 
@@ -175,5 +180,45 @@ Write code to do the following:
 
 Write your code here:
 ```ruby
+class CreateLamp < ActiveRecord::Migration
+  def new
+    create_table :wishes do |t|
+        t.string :wish_1
+        t.string :wish_2
+        t.string :wish_3
+    end
+  end
+end
+
+genie has_many wishes
+wishes belongs_to genie
+
+class CreateGenie < ActiveRecord::Migration
+  def new
+    create_table :genie do |t|
+      t.string :name
+      t.string :wine_type
+    end
+  end
+end
+==========
+class CreateLamp < ActiveRecord::Migration
+  def change
+    create_table :lamp do |t|
+        t.string :wish_1
+    end
+  end
+end
+==========
+class CreateGenie < ActiveRecord::Migration
+  def new
+    create_table :Jafar do |t|
+        t.string :wish_1
+        t.string :wish_2
+        t.string :wish_3
+    end
+  end
+end
+
 # code here
 ```
