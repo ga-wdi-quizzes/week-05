@@ -146,11 +146,12 @@ Replace this with your answer
 ### Question 8
 
 **Assume:**  
-1. Your database two working tables, `genies` and `lamps`.
-2. You have a working connection to the database for ActiveRecord.
+
+1. Your database two working tables, `genies` and `lamps`.  
+2. You have a working connection to the database for ActiveRecord.  
 3. You have active record models defined for `Genie` and `Lamp`, and the
-relationships between the two are set up in Active Record.
-4. Lamps have one property, `wishes_remaining`, and genies have one property, `name`.
+relationships between the two are set up in Active Record.  
+4. Lamps have one property, `wishes_remaining`, and genies have one property, `name`.  
 
 Write code to do the following:
 
