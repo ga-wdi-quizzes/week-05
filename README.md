@@ -153,7 +153,7 @@ Replace this with your answer
 relationships between the two are set up in Active Record.  
 4. Lamps have one property, `wishes_remaining`, and genies have one property, `name`.  
 
-Write code to do the following:
+**Write code to do the following:**
 
 1. Create a lamp with 3 wishes remaining and a genie named 'Genie'
 2. Create a relationship between 'Genie' and the lamp.
