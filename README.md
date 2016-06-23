@@ -9,7 +9,7 @@ the square brackets (for multiple-choice questions).
 4. Add/Commit/Push your changes to Github.
 5. Open a pull request.
 
-**Note**: only place your answer between backticks. Don't modify the backticks,
+**Note**: Only place your answer between backticks. Don't modify the backticks,
 or the language specifier after them.
 
 ## Ruby Basics & Enumerables (meets Beauty and the Beast)
@@ -145,7 +145,7 @@ Replace this with your answer
 
 ### Question 8
 
-**Assume:**
+**Assume:**  
 1. Your database two working tables, `genies` and `lamps`.
 2. You have a working connection to the database for ActiveRecord.
 3. You have active record models defined for `Genie` and `Lamp`, and the
