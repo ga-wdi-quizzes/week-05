@@ -24,7 +24,11 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
-# code here
+def offer_rose person
+    puts "Would you take this rose, #{person}, in exchange for giving an old beggar woman shelter from the bitter cold?"
+end
+
+offer_rose "young prince"
 ```
 
 ### Question 2
@@ -47,7 +51,7 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town[:castle][:guests] << town[:residents].delete("Belle")
 ```
 
 ### Question 3
@@ -69,7 +73,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+    puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -81,7 +87,12 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit tests check the smallest level, i.e. the functionality of a specific method. In general, unit tests should
+not be more than 5 lines long. Functional tests have a much wider focus, testing the functionality of entire features,
+which might involve running code covered by many individual unit tests.
+
+I would argue RSpec is designed to perform unit tests, but when enough tests are combined into a single spec, it can have
+the effect of functional testing.
 ```
 
 ### Question 5
@@ -112,7 +123,9 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+Context and describe are functionally equivalent, but context is used specifically to nest tests within each other.
+TBH, I'm not sure how well this applies to the preceding example, but you could use context tags to test different
+units that make of different "branches" of the same shared "tree."
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -129,7 +142,14 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+Entity relationship diagrams (ERDs) are tools used to visualize and describe the data relating to the major
+entities that exist in programs. Creating an ERD assists the planning out and creation of a database table structure.
+
+Presumably, a genie and a lamp would have a one-to-one relationship. The lamp would have attributes like size, gleam,
+and how many times to rub it (that's what she said), while the genie would have his/her own attributes. Each genie has one-to-one
+lamp and vice versa.
+
+On the other hand, each person may have many pets, and a pet may have many people (e.g. family dog).
 ```
 
 ### Question 7
@@ -140,7 +160,9 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is a SQL file that allows you to import database tables and columns/attributes quickly (and repeatedly, if necessary).
+In a one-to-many relationship, the table containing the "many" elements would include a foreign key column which equals the
+primary ID of the "one" elements.
 ```
 
 ### Question 8
@@ -165,5 +187,10 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
-# code here
+lamp = Lamp.create(wishes_remaining: 3)
+genie = Genie.create("Genie")
+lamp.update(genie.id: genie)
+jafar = Genie.create("Jafar")
+lamp2 = Lamp.create(wishes_remaining: 3, genie.id: jafar)
+lamp = nil
 ```
