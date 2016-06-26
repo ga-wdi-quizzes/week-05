@@ -53,8 +53,13 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+belle = town[:residents].delete("Belle") #=> "Belle"
+town[:castle][:guests].push(belle)
 ```
+
+[Array#delete](http://ruby-doc.org/core-2.2.0/Array.html#method-i-delete)
+- Deletes all items from self that are equal to obj.
+- Returns the last deleted item, or nil if no matching item is found.
 
 ### Question 3
 
