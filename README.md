@@ -51,7 +51,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town[:residents].delete "Belle"
+town[:castle][:guests].push("Belle")
 ```
 
 ### Question 3
@@ -73,7 +74,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -84,8 +87,11 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
+Unit testing checks to see if a specific function/method has a specific output.
+Functional testing checks to see if a program has its intended functionality. In other
+words, does the program/application works the way it is supposed to work.
 
-Replace this with your answer
+RSpec is unit testing because it tests individual functions/methods.
 ```
 
 ### Question 5
