@@ -25,6 +25,11 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 Write your code here:
 ```ruby
 # code here
+def offer_rose person
+  puts "Would you take this rose, #{{person}} in exchange for giving an old begger woman shelter from the bitter cold?"
+end
+
+offer_rose("young prince")
 ```
 
 ### Question 2
@@ -48,6 +53,8 @@ add her to the list of guests in the castle.
 Write your code here:
 ```ruby
 # code here
+town[:residents].delete("Belle")
+town[:castle][:guests].push("Belle")
 ```
 
 ### Question 3
@@ -70,6 +77,10 @@ Belle is friends with Mrs. Potts
 Write your code here:
 ```ruby
 # code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
+
 ```
 
 ## TDD and RSpec
@@ -81,7 +92,7 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+unit testing tests one particular method while functional testing tests the overall functionality of an application. RSpec is unit testing because it tests one specific method at a time.
 ```
 
 ### Question 5
@@ -111,8 +122,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+Context and Describe are exactly the same thing.  It's just used to make it easier to read. Describe is used for specific objects or method while context is used for the context within it.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -129,7 +139,16 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+ERD is Entity Relationship Diagram used to visualize and describe the data relating to the major entities that will exist in our programs.
+* Genie - name, birthday
+    belongs_to: one lamp
+* Lamp - material
+    has_one: genie
+* Person - name, birth_place, occupation
+    has_one: lamp
+    has_one: pet
+* Pet - name, type
+    has_one: person
 ```
 
 ### Question 7
@@ -140,7 +159,7 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+Schema is the format of the database that you will have in your application. Example, people will have name, birth_place, occupation as the table columns.
 ```
 
 ### Question 8
@@ -166,4 +185,12 @@ relationships between the two are set up in Active Record.
 Write your code here:
 ```ruby
 # code here
+1. genie = Genie.create(name: "Genie")
+   lamp = Lamp.create(wishes: 3)
+2. lamp.upate(genie: genie)
+3. lamp.update(wishes: 1)
+4. jafar = Genie.create(name: "Jafar")
+   new_lamp = Lamp.create(wishes: 3)
+   new_lamp.update(genie: jafar)
+5. genie.update(lamp:nil)
 ```
