@@ -24,7 +24,11 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
-# code here
+def offer_rose(person)
+  puts "Would you take this rose, #{person}, in exchange for giving an old beggar woman shelter from the bitter cold?"
+end
+
+
 ```
 
 ### Question 2
@@ -47,7 +51,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town[:residents].delete("Belle")
+town[:castle][:guests].push("Belle")
 ```
 
 ### Question 3
@@ -69,7 +74,11 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends = ["Chip Potts", "Cogsworth", "Lumière", "Mrs. Potts"]
+
+friends.each do |friend|
+   puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -81,7 +90,12 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit testing is usually for programmers and tests the smallest units of
+individual code to be certain they operate correctly.
+
+Functional testing is for users, tests larger units of code, and is meant to
+ensure that the code produces the correct outputs from the test inputs and
+meets the business requirements it's meant to satisfy.
 ```
 
 ### Question 5
@@ -112,7 +126,12 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+"Describe" refers to the functionality being tested.  "Context" describes the
+state in which that functionality is to be tested.  In this case, the
+functionality is "add tenant", the context here tests that functionality when
+there is an open bed available.  The next context to be tested might be a
+situation where all 3 rooms are full and there is no room for another tenant.
+
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -129,7 +148,13 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+ERD stands for Entity Relationship Diagram, and is used to show how two
+entities are related.  In the context of databases, they are used to display
+how tables relate to one another.  In this example, a person table would have
+rows for individual people and the pets table rows for individual pets.  Since
+a person can have multiple pets, the tables would be connected by one-to many
+relationships between individual rows in the people table to one or more rows
+in the pets table.  
 ```
 
 ### Question 7
@@ -140,7 +165,12 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is a description of the entire configuration of a database, including
+tables, relations, indexes, constraints, triggers, etc.  Data relationships are
+shown by lines/arrows drawn between tables.  One-to-one relationships are
+drawn with a line that ends with a single arrow (->), while a one-to-many
+relationship is indicated by a line ending in something shaped more like a fork
+(−∈).
 ```
 
 ### Question 8
