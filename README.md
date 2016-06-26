@@ -77,6 +77,7 @@ Write your code here:
 # code here
 friends.each do |friend|
    puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -88,7 +89,11 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit testing tests specific components of a system, such as a method or function. For an HTML based word processor, we might perform unit tests on a bold method, and look to see if text in the <strohng></strong> tags, plus the proper CSS is output.
+
+Functional testing is performed on larger pieces of the system. Again for a word processor, functional testing might involve selecting some text, typing CTRL-B, and seeing if it displays as bold. It might go on to test that the text stays bold if the file is saved, closed and re-opened, converted to a PDF, sentto a printer, etc. 
+
+RSpec performs unit testing; it tests the functionality of individual classes and associated methods. 
 ```
 
 ### Question 5
