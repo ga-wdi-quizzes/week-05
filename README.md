@@ -24,7 +24,10 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
-# code here
+def offer_rose person
+  puts "Would you take this rose, #{person}, in exchange for giving and old beggar woman shelter from the bitter cold?"
+end
+offer_rose "young prince"
 ```
 
 ### Question 2
@@ -47,7 +50,11 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+
+
+
+belle = town[ :residents].delete "Belle"
+town[ :castle][ :guests].push "Belle"
 ```
 
 ### Question 3
@@ -69,7 +76,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -80,8 +89,7 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
-
-Replace this with your answer
+Unit testing tests just the one specific thing or line that you're trying to test. It tests methods at the most basic level. Functional testing test whether a group of methods or a program all works correctly. Rspec is unit testing because it just tests the exact questions you ask it for each unit.
 ```
 
 ### Question 5
@@ -111,8 +119,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+Describe tells you what specific unit or method you're trying to test. Context describes the actual context of the texts you want to run.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -129,7 +136,22 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is an Entity Relationship Diagram. It tells you how the different data in databases relate to each other.
+Genie
+-has_one :master
+-name
+-wishes
+Lamp
+genie_id
+-has_one :occupant
+Person
+-has_one :genie
+-has_many :wishes
+-name
+Wish
+-genie_id
+-person_id
+-has_three
 ```
 
 ### Question 7
@@ -140,7 +162,16 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+Schema tells us what information we should have in the database via tables and what the defining characteristics of the tables should be.
+
+Person
+-primary key
+-name
+-has_many :wishes
+Wish
+-primary key
+-person_id
+-has_three
 ```
 
 ### Question 8
