@@ -22,7 +22,7 @@ When called the method should `puts` "Would you take this rose, `person`, in exc
 
 Demonstrate calling the method, passing in "young prince" as the argument.
 
-Write your code here:
+Answer:
 ```ruby
 def offer_rose(person)
   puts "Would you take this rose, #{person}, in exchange for giving an old beggar woman shelter from the bitter cold?"
@@ -51,13 +51,16 @@ town = {
 Using Ruby, remove Belle from the town residents, and
 add her to the list of guests in the castle.
 
-Write your code here:
+Answer:
 ```ruby
 belle = town[:residents].delete("Belle") #=> "Belle"
 town[:castle][:guests].push(belle)
 ```
 
+#### Memo
+
 [Array#delete](http://ruby-doc.org/core-2.2.0/Array.html#method-i-delete)
+
 - Deletes all items from self that are equal to obj.
 - Returns the last deleted item, or nil if no matching item is found.
 
@@ -78,9 +81,9 @@ Belle is friends with Lumière
 Belle is friends with Mrs. Potts
 ```
 
-Write your code here:
+Answer:
 ```ruby
-# code here
+friends.each { |f| puts "Belle is friends with #{f}" }
 ```
 
 ## TDD and RSpec
@@ -174,7 +177,7 @@ relationships between the two are set up in Active Record.
 5. Free the good Genie by setting his lamp to `nil`
 
 
-Write your code here:
+Answer:
 ```ruby
 # code here
 ```
