@@ -92,11 +92,18 @@ friends.each { |f| puts "Belle is friends with #{f}" }
 
 Describe the differences between unit and functional testing. What type of testing is RSpec and why?
 
-Your answer:
-```text
+Answer:
+```yaml
+unit_testing:
+  - written from a programmers perspective
+  - to ensure that a particular method (or a unit) of a class performs a set of specific tasks
 
-Replace this with your answer
+functional_testing:
+  - written from the user's perspective
+  - to ensure that the system is functioning as users are expecting it to
 ```
+
+- [Unit tests vs Functional tests](http://stackoverflow.com/a/2741845/3837223)
 
 ### Question 5
 
@@ -123,7 +130,7 @@ describe Apartment do
 end
 ```
 
-Your answer:
+Answer:
 ```text
 
 Replace this with your answer
@@ -141,7 +148,7 @@ entities (no need to draw an ERD):
 * Person
 * Pet
 
-Your answer:
+Answer:
 ```
 Replace this with your answer
 ```
@@ -152,7 +159,7 @@ Describe what a schema is, and how we represent a one-to-many relationship in a
 SQL database. If you need an example, you can use: people and wishes
 (one-to-many).
 
-Your answer:
+Answer:
 ```
 Replace this with your answer
 ```
