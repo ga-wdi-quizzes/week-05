@@ -123,8 +123,9 @@ end
 
 Your answer:
 ```text
+Decscribe relates the test to specific pieces of code. In the above example, the first describe relates the rspec code to a class called Apartment, and the second further relates relates it to a method of that class called add_tenant. 
 
-Replace this with your answer
+Context, however, provides an English language description tests, output as messages as the tests succeed or fail. 
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
