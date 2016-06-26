@@ -121,8 +121,12 @@ end
 
 Your answer:
 ```text
+Describe
+Provides a description of which unit/function/method is being tested.
 
-Replace this with your answer
+context
+Provides the context/circumstances that woud have to exist in order for it to
+be tested.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -139,7 +143,24 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+ERD
+An ERD is an Entity Relationship Diagram. It shows how all the "entities" or records
+in a database relate to one another. An ERD also shows what attributes a particular
+record would have.
+
+* Genie
+  -id
+  -name
+* Lamp
+  -id
+  -wishes
+* Person
+  -id
+  -name
+* Pet
+  -id
+  -name
+
 ```
 
 ### Question 7
@@ -150,7 +171,10 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+Schema describes the tables that are in a database. It also describes the properties
+each record will have (columns).
+
+We can represent a one-to-many relationship but using a Foreign Key in a database table.
 ```
 
 ### Question 8
@@ -175,5 +199,15 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
-# code here
+class Genie
+  name:
+end
+
+class Lamp wishes_remaining
+  attr_accessor :wishes_remaining
+  def initialize
+    @wishes_remaining = wishes_remaining
+  end
+
+end
 ```
