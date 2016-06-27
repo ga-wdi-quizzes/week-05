@@ -119,7 +119,7 @@ end
 
 Your answer:
 ```text
-there is not any difference in output but in readability
+describe and context are almost the same thing except context will be used for states.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -136,7 +136,7 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is an entity relationship diagram, they help to visualize the flow of your application.
 ```
 
 ### Question 7
@@ -173,5 +173,6 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
+
 # code here
 ```
