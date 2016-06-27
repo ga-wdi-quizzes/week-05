@@ -24,7 +24,9 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
-# code here
+def offer_rose(person)
+  puts "Would you take this rose, #{person}, in exchange for giving an old beggar woman shelter from the bitter cold?"
+  offer_rose("young prince")
 ```
 
 ### Question 2
@@ -47,7 +49,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+belle = town[:residents].delete(1)
+town.castle[:guests].push(belle)
 ```
 
 ### Question 3
@@ -69,7 +72,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -81,7 +86,7 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit testing tests the functionality of a specific method / function. Functional testing tests whether or not a piece or  part of the program works. Functional testing could be a whole block of code with many functions / methods, unit testing is always one function / method. Rspec is a form of unit testing, because you are testing your program one method at a time.  
 ```
 
 ### Question 5
@@ -112,7 +117,7 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+Describe is describing the expected output of a particular function (or method in this case), context is describing the condition under which it is being tested (in this example, its literally a conditional).
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -129,7 +134,12 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+an erd describe's the attributes and relationships of all the parts of a database. it is a visual representation of the database
+
+Genie - number of wishes granted, has one lamp, has one Person
+lamp- number of times rub'ed, has one Genie
+person- number of wishes made, has one genie, has many pets
+pet - species, has one person,  
 ```
 
 ### Question 7
@@ -140,7 +150,7 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+The schema define's the tables and columns in a database.
 ```
 
 ### Question 8
@@ -165,5 +175,7 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
-# code here
+genie = Genie.create(name: "Genie")
+lamp = Lamp.create(wishes_remianing: 3)
+lamp.update(genie: genie)
 ```
