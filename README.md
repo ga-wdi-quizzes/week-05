@@ -24,7 +24,13 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
-# code here
+def offer_rose (person)
+  puts "Would you take this rose, #{person}, in exchange for giving an old beggar woman shelter from the bitter cold?"
+end
+
+offer_rose ("young prince")
+
+  # code here
 ```
 
 ### Question 2
@@ -47,7 +53,7 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+residents.# code here
 ```
 
 ### Question 3
@@ -69,6 +75,11 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
+
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
+
 # code here
 ```
 
@@ -81,7 +92,11 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit tests ensure that a particular method of a class succesfully performs a set of specified tasks.  The tests confirm that the method is producing the its expected output when given a known input. They are written from the programmer's perspective.
+
+Functional tests are written from the user's perspective and are tests to confirm that the system is doing what the users are expecting it to.
+
+Unit tests tell a developer that the code is doing things right; functional tests tell a developer that the code is doing the right things.
 ```
 
 ### Question 5
@@ -112,7 +127,7 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+describe & context are the same thing, context is just an alias method of describe. the code is more readable than wrapping all the code with describe blocks.  When you read the context blocks you know that they are testing the same things the describe talk about.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -129,7 +144,13 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+ERD is entity relationship diagram, it shows the relationships of entity sets stored in a database.  ERDs illustrate the logical structure of databases.
+
+Person
+  |  \
+Lamp  Pet
+  |
+Genie
 ```
 
 ### Question 7
@@ -140,7 +161,9 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is the organization or structure of a database. Database is the main container and schemas are like folders in the database.
+
+one-to-many relationship: Use a foreign key on the "many" side of the relationship linking back to the "one" side
 ```
 
 ### Question 8
@@ -165,5 +188,15 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
+1. Lamp.create(wishes_remaining: 1,2,3, name: "Genie")
+2. class Lamp < ActiveRecord::Base
+    has_one :Genie
+  end
+3.
+Lamp.where(wishes_remaining: 3).destroy_all
+
+4.
+jafar = Genie.create(name: "Jafar")
+lamp = Lamp.create(wishes_remaining: 1,2,3, name: jafar)
 # code here
 ```
