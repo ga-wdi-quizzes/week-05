@@ -24,7 +24,15 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
-# code here
+def offer_rose person
+  puts " Would you take this rose #{person} in exchange for giving an old beggar woman shelter from the bitter cold?"
+  end
+prince = "young prince"
+offer_rose(prince)
+
+or
+
+offer_rose "young prince"
 ```
 
 ### Question 2
@@ -47,7 +55,13 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town[:residents] -= ["Belle"]
+town[:castle][:guests] += ["Belle"]
+
+or
+
+belle = town[:residents].delete "Belle"
+town[:castle][:guests].push(belle)
 ```
 
 ### Question 3
@@ -69,7 +83,13 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |person|
+	puts "Belle is friends with #{person}"
+end
+
+or
+
+friends.each { |person| puts "Belle is friends with #{person} "}
 ```
 
 ## TDD and RSpec
@@ -80,8 +100,9 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
-
-Replace this with your answer
+Unit testing = Individual method test. Checks to see if your code "will" work.
+Functionality testing = Multiple/many method tests. Checks to see if your code "does" work.
+RSpec does unit testing in order to see if your code will work properly when executed.
 ```
 
 ### Question 5
@@ -111,8 +132,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+Describe and context are functionally equivalent. But context is used when describing a test with a different context. Describe is used to tell which object or method is being tested. And context is used to tell what conditions that object or method is being tested.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -129,7 +149,11 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+ERD's = A tool used to visualize and describe the data relating to the major entities that will exist in our programs.
+Genie: Attributes: Name, Magical powers / Relationships: Lamp, Person
+Lamp: Attributes: Type, Magical powers / Relationships: Genie, Person, Pet
+Person: Attributes: Name / Relationships: Lamp, Genie, Pet
+Pet: Attributes: Type? / Relationships: Lamp, Person
 ```
 
 ### Question 7
@@ -140,7 +164,9 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema defines what columns a database has. For each column the schema defines the column's name, data type and any constraints for that column.
+People: primary key, name
+Wishes: primary key, people_id
 ```
 
 ### Question 8
@@ -165,5 +191,11 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
-# code here
+lamp = Lamp.create(wishes_remianing: 3)
+genie = Genie.create(name: "Genie")
+lamp.update(genie_id: genie)
+lamp.update(wishes_remaining: 1)
+jafar = Genie.create(name: "Jafar")
+new_lamp = Lamp.create(wishes_remaining: 3, genie_id: jafar)
+genie.update(lamp: nil)
 ```
