@@ -199,6 +199,18 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
+1) lamp = Lamp.new(wishes_remaining: 3)
+genie = Genie.new(name: "Genie")
+
+2)
+
+3)lamp.update(wishes_remaining: 1)
+
+4) jafar = Genie.new(name: "Jafar")
+lamp2 = Lamp.new(wishes_remaining: 3)
+
+5)
+
 class Genie
   name:
 end
