@@ -147,7 +147,7 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-A schema is used to create tables and designate the columns within them. You represent a one-to-many relationship by putting the id of the 'one' part of the relationship into the data values for the 'many' table. The wishes table would include person_id as a data value.
+A schema is used to create tables and designate the columns within them. You represent a one-to-many relationship by putting the id of the 'one' part of the relationship into the data values for the 'many' table (foreign id). The wishes table would include person_id as a data value.
 ```
 
 ### Question 8
