@@ -27,7 +27,7 @@ Write your code here:
 def offer_rose(person)
   puts "Would you take this rose, #{person}, in exchange for giving an old beggar woman shelter from the bitter cold?"
 end
-
+offer_rose("young prince")
 
 ```
 
@@ -51,8 +51,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-town[:residents].delete("Belle")
-town[:castle][:guests].push("Belle")
+belle = town[:residents].delete("Belle")
+town[:castle][:guests].push(belle)
 ```
 
 ### Question 3
@@ -91,7 +91,7 @@ Your answer:
 ```text
 
 Unit testing is usually for programmers and tests the smallest units of
-individual code to be certain they operate correctly.
+individual code, usually methods, to be certain they operate correctly.
 
 Functional testing is for users, tests larger units of code, and is meant to
 ensure that the code produces the correct outputs from the test inputs and
@@ -126,7 +126,7 @@ end
 Your answer:
 ```text
 
-"Describe" refers to the functionality being tested.  "Context" describes the
+"Describe" refers to the functionality/method being tested.  "Context" describes the
 state in which that functionality is to be tested.  In this case, the
 functionality is "add tenant", the context here tests that functionality when
 there is an open bed available.  The next context to be tested might be a
@@ -195,5 +195,12 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
-# code here
+1.  Lamp.create(name: "Genie")
+    Lamp.create(wishes_remaining: 3)
+2.  ????
+3.  Lamp.find_by(genie: "Genie")
+    Lamp.update(wishes_remaining: 1)
+4.  jafar = Genie.create(name: "Jafar")
+    jafar_lamp = Lamp.create(wishes_remaining: 3)
+5   genie.update(lamp: nil)
 ```
