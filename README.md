@@ -24,7 +24,14 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
-# code here
+def offer_rose(person)
+  puts "Would you take this rose, @#{person}, in exchange for giving an old beggar woman shelter from the bitter cold?"
+end
+
+
+offer_rose(young prince)
+would return
+  puts "Would you take this rose, young prince, in exchange for giving an old beggar woman shelter from the bitter cold?"
 ```
 
 ### Question 2
@@ -47,7 +54,13 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+
+town[:residents].delete("Belle")
+town[:castle][:guests]<<["Belle"]
+
+
+# -COMMENTS
+#s there a single line command to move one item to another? Merge perhaps?
 ```
 
 ### Question 3
@@ -69,7 +82,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+
+friends.each{|friend| puts "Belle is friends with "+friend}
+
 ```
 
 ## TDD and RSpec
@@ -81,7 +96,7 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit test are tests performed at the smallest level. Unit test are used with Rspec; to check if the output is desired. Functional testing is more broad, it looks if a 'function' (method) of your app works properly. This may require manual testing. Unit tests are more important and aid in development using TDD
 ```
 
 ### Question 5
@@ -112,7 +127,13 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+Describe tests a scenario or detail.
+in the describe example, the test creates a scenario where there are 2 tenants and 3 beds
+
+Context tests for variable(s) that change.
+if there is room in the apartment, add tenant and expect count to be 3
+
+From a functionality standpoint, they are identical but for readability, we use one over the other.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -129,7 +150,16 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+Entity relationship diagram helps us map and organize relationships to one another. we get more broad or more specific. It also details out the type of relationship between an entity or another (1 to 1, 1 to many, many to many)
+
+
+* Genie
+* Lamp
+- Owner,<1to1>, <1to1> lamp, Genie, <1toM> Wishes,
+
+* Person
+* Pet
+- person, <1toM> Pet
 ```
 
 ### Question 7
@@ -140,7 +170,7 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema describes the columns a table has. We can represent the one-to-many relationship in rails by modifying the models rb; for example, people.rb will have has_many :wishes, while wish.rb will have belongs_to :people
 ```
 
 ### Question 8
@@ -165,5 +195,24 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
-# code here
+
+3wishes = Lamp(wish1:'', wish2:'', wish3:'', genie: Genie)
+3wishes.save
+
+#in the models
+class Genie
+  has_many :wishes
+  belongs_to :lamp
+end
+
+3wishes.update(wish1: 'used', wish2: 'used', wish3: '', genie: Genie)
+
+jafar = Genie.new("Jafar")
+
+
+3wishes.destroy
+
+
+
+
 ```
