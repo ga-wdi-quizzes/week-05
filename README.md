@@ -175,8 +175,15 @@ SQL database. If you need an example, you can use: people and wishes
 
 Answer:
 ```
-Replace this with your answer
+A database schema defines how the data is organized and how the relations among them are associated.
+If we have people and wishes tables in a database and they have one-to-many relationship,
+we can say that each person can have many wishes and each wish belongs to one person.
+In our database, those two tables are linked through the foreign key person_id in
+the wishes table.
 ```
+
+#### References
+[DBMS - Data Schemas](http://www.tutorialspoint.com/dbms/dbms_data_schemas.htm)
 
 ### Question 8
 
@@ -200,5 +207,12 @@ relationships between the two are set up in Active Record.
 
 Answer:
 ```ruby
-# code here
+# Disclaimer: I am not familiar with this story; thus I assume such one-to-many
+# relationship that one lamp has many genies so that I can start working on this exercise.
+lamp = Lamp.create!(wishes_remaining: 3)
+lamp.genies.create!(name: "Genie")
+lamp.update(wishes_remaining: 1)
+another_lamp = Lamp.create!(wishes_remaining: 3)
+lamp.genies.create!(name: "Jafar")
+# ???
 ```
