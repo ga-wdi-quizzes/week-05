@@ -24,7 +24,10 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
-# code here
+def offer_rose person
+  puts "Would you take this rose, #{person}, in exchange for giving an old beggar woman shelter from the bitter cold?"
+end
+offer_rose "young prince"
 ```
 
 ### Question 2
@@ -47,7 +50,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+belle = town[:residents].delete "Belle"
+town[:castle][:guests].push(belle)
 ```
 
 ### Question 3
@@ -69,7 +73,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -80,8 +86,7 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
-
-Replace this with your answer
+A unit tests individual tests such as methods in a class, whereas functional tests will test many methods and may interact with dependencies like databases and web services.
 ```
 
 ### Question 5
@@ -111,8 +116,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+Describe tells you what unit is being tested. Context tells you what conditions it is being tested. You can use  context when you want to separate specs based on condition and describe when you want to separate methods being tested or behavior being tested.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -129,7 +133,18 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An entity–relationship model (ER model) is a data modeling technique that creates an illustration of an information system's entities and the relationships between those entities.
+
+Genie:
+Lamp
+
+
+Lamp:
+genie
+Person:
+name
+Pet:
+name
 ```
 
 ### Question 7
@@ -140,7 +155,7 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+refers to the organization of data as a blueprint of how the database is constructed (divided into database tables in the case of relational databases). We represent a one-to-many relationship with an arrow on one end and then a crows-feet arrow on the other end.
 ```
 
 ### Question 8
@@ -165,5 +180,5 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
-# code here
+
 ```
