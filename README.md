@@ -57,7 +57,7 @@ belle = town[:residents].delete("Belle") #=> "Belle"
 town[:castle][:guests].push(belle)
 ```
 
-#### Memo
+#### References
 
 [Array#delete](http://ruby-doc.org/core-2.2.0/Array.html#method-i-delete)
 
@@ -103,6 +103,7 @@ functional_testing:
   - to ensure that the system is functioning as users are expecting it to
 ```
 
+#### References
 - [Unit tests vs Functional tests](http://stackoverflow.com/a/2741845/3837223)
 
 ### Question 5
@@ -132,9 +133,16 @@ end
 
 Answer:
 ```text
-
-Replace this with your answer
+context does literally the exact same thing as describe. They're identical.
+RSpec makes no difference between them.
+To make your tests more readable from an English standpoint.
+We can use describe for specifying objects or methods that are to be tested.
+We can use context for specifying different contexts that method is used.
+The net effect is to be able to write spec example like English for its readability.
 ```
+
+#### References
+[ga-wdi-lessons/rspec](https://github.com/ga-wdi-lessons/rspec#we-do-additional-tests-using-context-5-min)
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
 
@@ -150,7 +158,13 @@ entities (no need to draw an ERD):
 
 Answer:
 ```
-Replace this with your answer
+An Entity Relationship Diagram (ERD) is a tool we use to visualize and describe the data relating to the major entities that will exist in out programs.
+It is useful in our planning an application and its database table structure.
+Also, it help other developers understand the structure of the whole application.
+
+E.g., one-to-many
+- Person can have many pets.
+- Pet can belong to one person.
 ```
 
 ### Question 7
