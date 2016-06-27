@@ -25,6 +25,11 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 Write your code here:
 ```ruby
 # code here
+def offer_rose person
+  puts "Would you take this rose #{person}, in exchange for giving an old beggar women shelter from the bitter cold?"
+end
+
+offer_rose("young prince")
 ```
 
 ### Question 2
@@ -48,6 +53,8 @@ add her to the list of guests in the castle.
 Write your code here:
 ```ruby
 # code here
+town[:residents] - ["Belle"]
+town[:guests] << "Belle"
 ```
 
 ### Question 3
@@ -70,6 +77,7 @@ Belle is friends with Mrs. Potts
 Write your code here:
 ```ruby
 # code here
+friends.each { |friend| puts "Belle is friends with #{friend}"}
 ```
 
 ## TDD and RSpec
@@ -79,9 +87,9 @@ Write your code here:
 Describe the differences between unit and functional testing. What type of testing is RSpec and why?
 
 Your answer:
-```text
-
-Replace this with your answer
+unit testing : checks code at the smallest level - focuses on the functionality of a specific method.
+functional testing : a much braoder level of testing. focus on if the code performs tasks such completing specific user stories etc
+RSpec is a type of unit testing
 ```
 
 ### Question 5
@@ -111,6 +119,8 @@ end
 
 Your answer:
 ```text
+There is no difference between describe and context - they both just bunch together bits of code to test.
+You would use context in addition to describe to make the testing more clear to the reader
 
 Replace this with your answer
 ```
@@ -129,7 +139,13 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+ERD stands for entity relationship diagram. its a tool that basically enables us to visualize data
+and the relationships between data. it helps us create tables in databases. Genie and Lamp would
+have a one-to-one relationship. Genie would have a name as an attribute, and Lamp would maybe have
+type or material as an attribute.
+Person to pet could have a one-to-many relationship because one person can have many pets, but many people
+generally couldnt share one pet. name would be an example of an attribute for both pet and person. another
+attribute for pet would be type/kind
 ```
 
 ### Question 7
@@ -141,6 +157,9 @@ SQL database. If you need an example, you can use: people and wishes
 Your answer:
 ```
 Replace this with your answer
+a schema basically just outlines the columns for each table, so that you don't have to keep inputing all
+the structural information of a table each time you add data.
+we represent a one-to-many relationship by adding a foreign key to the many side to represent the one thing it belongs to
 ```
 
 ### Question 8
@@ -166,4 +185,10 @@ relationships between the two are set up in Active Record.
 Write your code here:
 ```ruby
 # code here
+genie = Genie.create(name: "Genie")
+lamp = Lamp.create(wishes_remaining: 3, genie: genie)
+lamp.update(wishes_remaining: 1)
+jafar = Genie.create(name: "Jafar")
+Lamp.create(wishes_remaining: 3, genie: jafar)
+lamp.update(genie: nil)
 ```
