@@ -24,7 +24,13 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
-# code here
+def offer_rose person
+  puts "Would you take this rose, #{person}, in exchange for giving an old beggar woman shelter from the bitter cold?"
+end
+
+offer_rose("young prince")
+"Would you take this rose, #{young prince}, in exchange for giving an old beggar woman shelter from the bitter cold?"
+
 ```
 
 ### Question 2
@@ -47,7 +53,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town.residents.delete_at(1)
+town.castle.guests << "Belle"
 ```
 
 ### Question 3
@@ -69,7 +76,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -80,8 +89,7 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
-
-Replace this with your answer
+RSpec is unit testing. Unit testing tests each piece or unit of your code, versus functional testing which tests overall if your code works. With unit testing, it's easier to narrow down a problem within your code.
 ```
 
 ### Question 5
@@ -111,8 +119,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+Functionally there is no difference between describe and context. Using context helps with readability when there is branching login in your  code, i.e., when theres is a new context of your describe.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -129,7 +136,7 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+Entity relationship diagram - describes the relationships between different pieces of data in a database. A lamp has a Genie and a Genie belongs to that lamp. A person can have multiple pets and a pet belongs to that person.
 ```
 
 ### Question 7
@@ -140,7 +147,7 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema is used to create tables and designate the columns within them. You represent a one-to-many relationship by putting the id of the 'one' part of the relationship into the data values for the 'many' table (foreign id). The wishes table would include person_id as a data value.
 ```
 
 ### Question 8
@@ -165,5 +172,10 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
-# code here
+genie = Genie.create(name:"Genie")
+lamp = Lamp.create(wishes_remaining: 3, genie: genie)
+lamp.update(wishes_remaining: 1)
+jafar = Genie.create(name: "Jafar")
+Lamp.create(wishes_remaining: 3, genie: jafar)
+genie.update(lamp: nil)
 ```
