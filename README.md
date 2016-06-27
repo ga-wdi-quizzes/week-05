@@ -24,7 +24,11 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
-# code here
+def offer_rose person
+  puts "Would you take this rose, #{person}, in exchange for giving an old
+  beggar woman shelter from the bitter cold?"
+end
+offer_rose "young_prince"
 ```
 
 ### Question 2
@@ -47,7 +51,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town[:residents].delete "Belle"
+town[:castle][:guests].push("Belle")
 ```
 
 ### Question 3
@@ -69,7 +74,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -80,8 +87,11 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
+Unit testing checks to see if a specific function/method has a specific output.
+Functional testing checks to see if a program has its intended functionality. In other
+words, does the program/application works the way it is supposed to work.
 
-Replace this with your answer
+RSpec is unit testing because it tests individual functions/methods.
 ```
 
 ### Question 5
@@ -111,8 +121,12 @@ end
 
 Your answer:
 ```text
+Describe
+Provides a description of which unit/function/method is being tested.
 
-Replace this with your answer
+context
+Provides the context/circumstances that woud have to exist in order for it to
+be tested.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -129,7 +143,24 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+ERD
+An ERD is an Entity Relationship Diagram. It shows how all the "entities" or records
+in a database relate to one another. An ERD also shows what attributes a particular
+record would have.
+
+* Genie
+  -id
+  -name
+* Lamp
+  -id
+  -wishes
+* Person
+  -id
+  -name
+* Pet
+  -id
+  -name
+
 ```
 
 ### Question 7
@@ -140,7 +171,10 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+Schema describes the tables that are in a database. It also describes the properties
+each record will have (columns).
+
+We can represent a one-to-many relationship but using a Foreign Key in a database table.
 ```
 
 ### Question 8
@@ -165,5 +199,27 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
-# code here
+1) lamp = Lamp.new(wishes_remaining: 3)
+genie = Genie.new(name: "Genie")
+
+2)
+
+3)lamp.update(wishes_remaining: 1)
+
+4) jafar = Genie.new(name: "Jafar")
+lamp2 = Lamp.new(wishes_remaining: 3)
+
+5)
+
+class Genie
+  name:
+end
+
+class Lamp wishes_remaining
+  attr_accessor :wishes_remaining
+  def initialize
+    @wishes_remaining = wishes_remaining
+  end
+
+end
 ```
