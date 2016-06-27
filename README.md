@@ -25,6 +25,13 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 Write your code here:
 ```ruby
 # code here
+
+def rose person
+  person = person.capitalize
+  puts "Would you take this rose, #{person}, in exchange for giving an old beggar woman shelter from the bitter cold?"
+end
+
+
 ```
 
 ### Question 2
@@ -48,6 +55,11 @@ add her to the list of guests in the castle.
 Write your code here:
 ```ruby
 # code here
+
+resident1 = resident[1]
+town.delete(residents[1])
+town.castle.push(residents1)
+
 ```
 
 ### Question 3
@@ -70,6 +82,12 @@ Belle is friends with Mrs. Potts
 Write your code here:
 ```ruby
 # code here
+
+friends.each do |friendly|
+  puts "Michael is friends with #{friendly}"
+end
+
+
 ```
 
 ## TDD and RSpec
@@ -81,7 +99,10 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit testing is ideally testing the lowest level of code doing something, a method, does what's expected when called and passed an argument.
+
+Functional testing is at a higher level making sure requirements are met based on how an end user would use the software, including usability (as opposed to strictly could the action described in the requirements and verified in unit testing be done).
+
 ```
 
 ### Question 5
@@ -112,7 +133,7 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+Describe and context do the same thing in rspec but help developers organize the information in a more readable format. By convention (I think?) context allows nesting of similar text to be reused, same idea as functions for repeating similar commands.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -129,7 +150,14 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is an entity relationship diagram, it's a model of what attributes and data is linked with other attributes.
+
+* Genie: Genie linked to person and pets. One to many relationship for both person and pets.
+* Lamp: Lamp linked to Genie, 1:1 relationship.
+* Person: Person linked to genie and pets. Many to many relationship for both.
+* Pet: Pet linked to person and genie. Many to many relationships.
+
+
 ```
 
 ### Question 7
@@ -140,7 +168,10 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema describes the structure of the data such as column type (integer, string, etc.) and contraints such as is the information always required.
+
+A one to many relationship could be represented by a line from the attribute representing one and a crow's foot representing many.
+
 ```
 
 ### Question 8
@@ -149,8 +180,7 @@ Replace this with your answer
 
 1. Your database two working tables, `genies` and `lamps`.  
 2. You have a working connection to the database for ActiveRecord.  
-3. You have active record models defined for `Genie` and `Lamp`, and the
-relationships between the two are set up in Active Record.  
+3. You have active record models defined for `Genie` and `Lamp`, and the relationships between the two are set up in Active Record.  
 4. Lamps have one property, `wishes_remaining`, and genies have one property, `name`.  
 
 **Write code to do the following:**
@@ -166,4 +196,16 @@ relationships between the two are set up in Active Record.
 Write your code here:
 ```ruby
 # code here
+
+Lamp.create(wishes_remaining: 3)
+Genie.create(name: "G")
+
+How to create relationship between data?
+
+lamp.update(wishes_remaining: 1)
+Genie.create(name: "Jafar")
+Lamp.create(wishes_remaining: 3)
+
+lamp.update(wishes_remaining: 0)
+
 ```
