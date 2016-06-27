@@ -24,7 +24,13 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
-# code here
+#method defined
+def offer_rose person
+  @person = person
+  puts "Would you take this rose, " + @person + ", in exchange for giving an old beggar woman shelter from the bitter cold?"
+end
+#method called
+puts offer_rose("young prince")
 ```
 
 ### Question 2
@@ -47,7 +53,10 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+@residents = town[:residents].delete_at(1)
+@guests = town[:castle][:guests]
+@guests.push("Belle")
+
 ```
 
 ### Question 3
@@ -69,7 +78,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -81,7 +92,8 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit tests are individual tests executed. For a example, testing a method would be a unit test.
+Functional testing tests a slice of functionality in a system. This would include many methods that may interact with dependencies such as databases.
 ```
 
 ### Question 5
@@ -112,7 +124,7 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+describe and context do not have a functional difference, but have a contextual difference. The difference between them would be that describe is used to wrap a set of tests against one functionality, while “context” is to wrap a set of tests against one functionality under the same state.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -129,7 +141,7 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+ERD stands for Entity Relationship Diagram. They are created to have a clearer vision of the database structure of an application. They consist of the entities or classes of a database and its properties/attributes. In this case, Person could have a one-to-many relationship with the Pet entity. Rob could be the name of a person who has 2 pets. In the Pet entity, there could be an attribute "type" where it can specify that Rob owns a cat and a dog. The Genie could have a one-to-one relationship with the Lamp. Genie could have an attribute name as well which relates to the Lamp with an attribute called origin_name, where it says from which country the lamp originated.
 ```
 
 ### Question 7
@@ -140,7 +152,11 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A database schema is the skeleton structure that represents the logical view of the entire database. It defines how the data is organized and how the relations among them are associated. A database schema defines its entities and the relationship among them.
+To represent a one-to-many relationship in a SQL database, we can have a table called People and a table called Wishes.
+People: person_id, first_name, last_name, wishes_count
+Wishes: wishes_id, wishes_count, person_id
+The person_id will be the foreign key where the two tables are related to each other.
 ```
 
 ### Question 8
@@ -165,5 +181,12 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
-# code here
+lamp = Lamp.create(wishes_remaining: 3)
+genie = Genie.create(name: "Genie")
+genie.update(lamp.id: 1)
+lamp.update(wishes_remaining: 1)
+jafar = Genie.create(name: "Jafar")
+second_lamp = Lamp.create(wishes_remaining: 2)
+lamp = nil
+
 ```
