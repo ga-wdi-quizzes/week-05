@@ -176,7 +176,14 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+Each table in a database is defined by a schema. The schmea defines the columns in the table each row may have: 
+the data type (for instance, string, integer, float, date), and any constraints (for instance, a limited range 
+of numbers or making the field mandatory.) Among those fields can be foreign keys, that represent relationships to
+other entities. There are three types of relationships: one to one, one to many and many to many.
+
+A one to many relationship is shown by a column in the schema for the "many" data. For instance, a person can have
+many wishes, so people to wishes is one to many. Each wish would have a person field in the schema, and it would contain
+the ID of the person who made the wish. The person table has no direct listing of wishes; a given person's wishes can be found by searching the wishes table for that person's ID.
 ```
 
 ### Question 8
