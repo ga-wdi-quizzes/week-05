@@ -24,7 +24,12 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
-# code here
+def offer_rose person
+  @person = person
+  puts "Would you take this rose, #{person}, in exchange for giving an old beggar woman shelter from the bitter cold?"
+end
+
+offer_rose "Young Prince"
 ```
 
 ### Question 2
@@ -47,7 +52,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+belle = town[:residents].delete "Belle"
+town[:castle][:guests].push belle
 ```
 
 ### Question 3
@@ -69,7 +75,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -80,8 +88,7 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
-
-Replace this with your answer
+Unit testing tests individual methods or functions, while functional testing tests functionality of several interactions.  RSpec is considered unit testing since it checks the smallest level possible.
 ```
 
 ### Question 5
@@ -111,8 +118,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+Functionally there is not much difference, the difference is mainly in regards to readability.  Context is being used to specify certain conditions within a method while describe is specifying the entire method being tested.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -129,7 +135,23 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD, or Entity Relationship Diagram, shows how different aspects of a database relate.  This is helpful for understanding the potentially large amount of information in a database.
+
+Genie
+-name
+-has a Lamp
+-wishes left
+Lamp
+-material
+-belongs to a Genie
+Person
+-name
+-has many wishes
+Pet
+-name
+-species
+-belongs to a Person
+
 ```
 
 ### Question 7
@@ -140,7 +162,15 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+Schemas define what tables go in a database and how the database should be structured.
+
+Person
+-primary key
+-name
+wishes
+-primary key
+-person id
+-text of wish
 ```
 
 ### Question 8
@@ -165,5 +195,12 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
-# code here
+genie = Genie.create(name: "Genie")
+lamp = Lamp.create(wishes_remaining: 3)
+lamp.update(genie: genie)
+lamp.update(wishes_remaining: 1)
+jafar = Genie.create(name: "Jafar")
+lamp_two = Lamp.creat(wishes_remaining: 3)
+lamp_two.update(genie: jafar)
+lamp.update(genie: nil)
 ```
