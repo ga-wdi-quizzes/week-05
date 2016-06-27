@@ -201,5 +201,16 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
-# code here
+1)
+  lamp = Lamp.new(wishes_remaining: 3)
+  genie = Genie.new(name: "Genie")
+2)
+  genie.lamp = lamp
+3) 
+  lamp.wishes_remaining = 1
+4)
+  jafar_lamp = lamp.new(wishes_remaining: 3)
+  jafar = Genie.new(name: 'Jafar', lamp: jafar_lamp)
+5)
+  genie.lamp = nil
 ```
