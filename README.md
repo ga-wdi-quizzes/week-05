@@ -22,9 +22,15 @@ When called the method should `puts` "Would you take this rose, `person`, in exc
 
 Demonstrate calling the method, passing in "young prince" as the argument.
 
-Write your code here:
+Answer:
 ```ruby
-# code here
+def offer_rose(person)
+  puts "Would you take this rose, #{person}, in exchange for giving an old beggar woman shelter from the bitter cold?"
+end
+
+offer_rose "young prince"
+# Would you take this rose, young prince, in exchange for giving an old beggar woman shelter from the bitter cold?
+# => nil
 ```
 
 ### Question 2
@@ -45,10 +51,18 @@ town = {
 Using Ruby, remove Belle from the town residents, and
 add her to the list of guests in the castle.
 
-Write your code here:
+Answer:
 ```ruby
-# code here
+belle = town[:residents].delete("Belle") #=> "Belle"
+town[:castle][:guests].push(belle)
 ```
+
+#### References
+
+[Array#delete](http://ruby-doc.org/core-2.2.0/Array.html#method-i-delete)
+
+- Deletes all items from self that are equal to obj.
+- Returns the last deleted item, or nil if no matching item is found.
 
 ### Question 3
 
@@ -67,9 +81,9 @@ Belle is friends with Lumière
 Belle is friends with Mrs. Potts
 ```
 
-Write your code here:
+Answer:
 ```ruby
-# code here
+friends.each { |f| puts "Belle is friends with #{f}" }
 ```
 
 ## TDD and RSpec
@@ -78,11 +92,19 @@ Write your code here:
 
 Describe the differences between unit and functional testing. What type of testing is RSpec and why?
 
-Your answer:
-```text
+Answer:
+```yaml
+unit_testing:
+  - written from a programmers perspective
+  - to ensure that a particular method (or a unit) of a class performs a set of specific tasks
 
-Replace this with your answer
+functional_testing:
+  - written from the user's perspective
+  - to ensure that the system is functioning as users are expecting it to
 ```
+
+#### References
+- [Unit tests vs Functional tests](http://stackoverflow.com/a/2741845/3837223)
 
 ### Question 5
 
@@ -109,11 +131,18 @@ describe Apartment do
 end
 ```
 
-Your answer:
+Answer:
 ```text
-
-Replace this with your answer
+context does literally the exact same thing as describe. They're identical.
+RSpec makes no difference between them.
+To make your tests more readable from an English standpoint.
+We can use describe for specifying objects or methods that are to be tested.
+We can use context for specifying different contexts that method is used.
+The net effect is to be able to write spec example like English for its readability.
 ```
+
+#### References
+[ga-wdi-lessons/rspec](https://github.com/ga-wdi-lessons/rspec#we-do-additional-tests-using-context-5-min)
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
 
@@ -127,9 +156,15 @@ entities (no need to draw an ERD):
 * Person
 * Pet
 
-Your answer:
+Answer:
 ```
-Replace this with your answer
+An Entity Relationship Diagram (ERD) is a tool we use to visualize and describe the data relating to the major entities that will exist in out programs.
+It is useful in our planning an application and its database table structure.
+Also, it help other developers understand the structure of the whole application.
+
+E.g., one-to-many
+- Person can have many pets.
+- Pet can belong to one person.
 ```
 
 ### Question 7
@@ -138,10 +173,17 @@ Describe what a schema is, and how we represent a one-to-many relationship in a
 SQL database. If you need an example, you can use: people and wishes
 (one-to-many).
 
-Your answer:
+Answer:
 ```
-Replace this with your answer
+A database schema defines how the data is organized and how the relations among them are associated.
+If we have people and wishes tables in a database and they have one-to-many relationship,
+we can say that each person can have many wishes and each wish belongs to one person.
+In our database, those two tables are linked through the foreign key person_id in
+the wishes table.
 ```
+
+#### References
+[DBMS - Data Schemas](http://www.tutorialspoint.com/dbms/dbms_data_schemas.htm)
 
 ### Question 8
 
@@ -163,7 +205,14 @@ relationships between the two are set up in Active Record.
 5. Free the good Genie by setting his lamp to `nil`
 
 
-Write your code here:
+Answer:
 ```ruby
-# code here
+# Disclaimer: I am not familiar with this story; thus I assume such one-to-many
+# relationship that one lamp has many genies so that I can start working on this exercise.
+lamp = Lamp.create!(wishes_remaining: 3)
+lamp.genies.create!(name: "Genie")
+lamp.update(wishes_remaining: 1)
+another_lamp = Lamp.create!(wishes_remaining: 3)
+lamp.genies.create!(name: "Jafar")
+# ???
 ```
