@@ -24,7 +24,11 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
-# code here
+def offer_rose(person)
+  puts "Would you take this rose, " +  person + ", in exchange for giving an old beggar woman shelter from the bitter cold?"
+end
+
+offer_rose(young_prince)
 ```
 
 ### Question 2
@@ -47,7 +51,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town[:residents] -= ["Belle"]
+town[:castle][:guests] += ["Belle"]
 ```
 
 ### Question 3
@@ -70,6 +75,9 @@ Belle is friends with Mrs. Potts
 Write your code here:
 ```ruby
 # code here
+friends.each do |friend|
+   puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -81,7 +89,15 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit testing tests specific components of a system, such as a method or function. For an HTML based word processor, 
+we might perform unit tests on a bold method, and look to see if text in the <strohng></strong> tags, plus the 
+proper CSS is output.
+
+Functional testing is performed on larger pieces of the system. Again for a word processor, functional testing 
+might involve selecting some text, typing CTRL-B, and seeing if it displays as bold. It might go on to test that 
+the text stays bold if the file is saved, closed and re-opened, converted to a PDF, sentto a printer, etc. 
+
+RSpec performs unit testing; it tests the functionality of individual classes and associated methods. 
 ```
 
 ### Question 5
@@ -111,8 +127,11 @@ end
 
 Your answer:
 ```text
+Decscribe relates the test to specific pieces of code. In the above example, the first describe relates the 
+rspec code to a class called Apartment, and the second further relates relates it to a method of that class 
+called add_tenant. 
 
-Replace this with your answer
+Context, however, provides an English language description tests, output as messages as the tests succeed or fail. 
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -129,7 +148,24 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is an Entity Relationship Diagram displays the types of entities that will exist in a program and 
+its associated databases. It shows the entities, the attributes of each entity, and how it related to other 
+entities. It's a conceptual model that does not define solutions to a problem, but is used to plan and develop
+solutions. 
+
+For instance, a Genie might have attributes like an ID (an integer, assigned by the database) Name and CurrentShape, 
+(text fields), Age (an integer), and LampID, the ID of a Lamp (aka a Foreign Key.).
+
+A Lamp would have it's own ID, a Location (text field) and a GenieID, representing the ID of its Genie. This indicates
+a one-to-one relationship between Genies and Lamps: each Genie had one Lamp, and each Lamp has one Genie. It would also
+have a field for the ID of its owner. 
+
+A Person might have an ID, a Name and a Location. They might have any number of Lamps, forming a one-to-many 
+relationship, so they do not have a Lamp field; ownership of a Lamp is covered by Lamp's attributes. 
+
+A Pet would have a name. If we assume a Person can have multiple Pets (a Crazy Cat Lady?) and a Pet can have multiple owners
+(a family dog?), that's a many-to-many relationship. I'm not quite sure how that's represented from a database standpoint, 
+beyond requiring a third table.
 ```
 
 ### Question 7
@@ -140,7 +176,14 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+Each table in a database is defined by a schema. The schmea defines the columns in the table each row may have: 
+the data type (for instance, string, integer, float, date), and any constraints (for instance, a limited range 
+of numbers or making the field mandatory.) Among those fields can be foreign keys, that represent relationships to
+other entities. There are three types of relationships: one to one, one to many and many to many.
+
+A one to many relationship is shown by a column in the schema for the "many" data. For instance, a person can have
+many wishes, so people to wishes is one to many. Each wish would have a person field in the schema, and it would contain
+the ID of the person who made the wish. The person table has no direct listing of wishes; a given person's wishes can be found by searching the wishes table for that person's ID.
 ```
 
 ### Question 8
@@ -165,5 +208,16 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
-# code here
+1)
+  lamp = Lamp.new(wishes_remaining: 3)
+  genie = Genie.new(name: "Genie")
+2)
+  genie.lamp = lamp
+3) 
+  lamp.wishes_remaining = 1
+4)
+  jafar_lamp = lamp.new(wishes_remaining: 3)
+  jafar = Genie.new(name: 'Jafar', lamp: jafar_lamp)
+5)
+  genie.lamp = nil
 ```
