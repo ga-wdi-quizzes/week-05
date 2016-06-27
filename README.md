@@ -24,7 +24,11 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
-# code here
+def offer_rose(person)
+  puts "Would you take this rose, #{person}, in exchange for giving an old beggar woman shelter from the bitter cold?"
+end
+
+puts offer_rose("young prince")
 ```
 
 ### Question 2
@@ -47,7 +51,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+belle = town[:residents].delete("Belle")
+town[:castle][:guests] << belle
 ```
 
 ### Question 3
@@ -69,7 +74,7 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each{|friend| puts "Belle is friends with #{friend}"}
 ```
 
 ## TDD and RSpec
@@ -81,7 +86,7 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+Unit testing is smaller than functional testing. Unit testing checks to see if the parts of a larger program are working, for example, the methods within a program. functional testing checks if the program as a whole is working in the correct way.
 ```
 
 ### Question 5
@@ -111,8 +116,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+describe sets up the situation and context offers one explanation for what should happen in that situation. If there were an additional test for the '#add_tenant' method it might look something like - context 'when there is no room (== the number of beds)...'
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -129,7 +133,16 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+ERD - Entity Relationship Diagram - These diagrams help to visualize the entities/tables in a database, the attributes/columns each entity has and the relations between each entity. One to One, One to Many and Many to Many.
+
+Attributes
+Genie - name, wishes_to_give
+Lamp - type_of_metal, is_closed
+Person - name, wishes_to_wish
+Pet - is_tiger
+
+Relations, Genie --> Lamp --> Person --> Pet, all One to One
+
 ```
 
 ### Question 7
@@ -140,14 +153,19 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+A schema sets up a database; it's what our database will initially look like. For example, when loading a schema file one can expect one or more tables and columns to be loaded into a database file, which will then be accessible. It's like seeding the structure, but not the data, of database.
+
+In a SQL database, a one-to-many relationship is represented by the presence of the id number for the 'one' inside each row/item of the 'many'. Taking the people and wishes example, if each person has many wishes:
+
+person { id: 1, name: "Dave" }
+wishes {id: 12, number: 100000, person_id: 1 }
 ```
 
 ### Question 8
 
 **Assume:**  
 
-1. Your database two working tables, `genies` and `lamps`.  
+1. Your database has two working tables, `genies` and `lamps`.  
 2. You have a working connection to the database for ActiveRecord.  
 3. You have active record models defined for `Genie` and `Lamp`, and the
 relationships between the two are set up in Active Record.  
@@ -165,5 +183,20 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
-# code here
+#1
+el_lamp = Lamp.create(wishes_remaining: 3)
+jeanie = Genie.crate(name: "Jean")
+
+#2
+el_lamp.update(genie_id: jeanie.id)
+
+#3
+el_lamp.update(wishes_remaining: 1)
+
+#4
+jafar = Genie.create(name: "Jafar", lamp_id: el_lamp_le_deux.id)
+el_lamp_le_deux = Lamp.create(wishes_remaining: 3)
+
+#5
+jeanie.lamp_id = nil
 ```
