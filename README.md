@@ -24,6 +24,12 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
+def offer_rose person
+    puts 'Would you take this rose ,#{person}, in exchange for giving an old beggar woman shelter from the bitter cold?'
+end
+
+offer_rose 'young prince'
+
 # code here
 ```
 
@@ -47,6 +53,7 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
+guests.push(town[:residents][1])
 # code here
 ```
 
@@ -69,6 +76,7 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
+friends.each{|friend| puts 'Belle is friends with #{friend}'}
 # code here
 ```
 
@@ -80,8 +88,8 @@ Describe the differences between unit and functional testing. What type of testi
 
 Your answer:
 ```text
+  Unit testing is testing small pieces of code ,while functional testing is testing the functionality of the code.
 
-Replace this with your answer
 ```
 
 ### Question 5
@@ -111,8 +119,7 @@ end
 
 Your answer:
 ```text
-
-Replace this with your answer
+describe and context are almost the same thing except context will be used for states.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -129,7 +136,7 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+An ERD is an entity relationship diagram, they help to visualize the flow of your application.
 ```
 
 ### Question 7
@@ -140,7 +147,8 @@ SQL database. If you need an example, you can use: people and wishes
 
 Your answer:
 ```
-Replace this with your answer
+schema is a collection of database objects, people can have many wishes but wishes does not have many people.
+
 ```
 
 ### Question 8
@@ -165,5 +173,6 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
+
 # code here
 ```
