@@ -24,7 +24,10 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
-# code here
+def offer_rose person
+  puts "would you take this rose, #{person}, in exchange for giving an old beggar woman shelter from the bitter cold?"
+end
+offer_rose "young prince"
 ```
 
 ### Question 2
@@ -47,7 +50,8 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+belle = town[:residents].delete "Belle"
+town[:castle][:guests].push(belle)
 ```
 
 ### Question 3
@@ -69,7 +73,9 @@ Belle is friends with Mrs. Potts
 
 Write your code here:
 ```ruby
-# code here
+friends.each do |friend|
+  puts "Belle is friends with #{friend}"
+end
 ```
 
 ## TDD and RSpec
@@ -81,7 +87,9 @@ Describe the differences between unit and functional testing. What type of testi
 Your answer:
 ```text
 
-Replace this with your answer
+We use unit testing to test specific methods (Rspec) while functional testing is testing the whole program.
+
+
 ```
 
 ### Question 5
@@ -112,7 +120,8 @@ end
 Your answer:
 ```text
 
-Replace this with your answer
+Describe is what the unit does exactly.
+Context is under which conditions a method would be run.
 ```
 
 ## SQL, Databases, and ActiveRecord (meets Aladdin)
@@ -129,7 +138,23 @@ entities (no need to draw an ERD):
 
 Your answer:
 ```
-Replace this with your answer
+Entity relationship Diagram shows how stuff in the database is related to eachother. It also shows what attributes each entity has.
+
+Genie:
+ - has one lamp
+ - is robin williams
+ - blue
+
+Lamp  
+  - belongs to  :genie
+  - brass
+
+Person
+  - has a name
+  - has_many :wishes
+wish
+  belongs_to :person
+
 ```
 
 ### Question 7
@@ -165,5 +190,12 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
-# code here
+genie = Genie.create(name: "Genie")
+lamp= Lamp.create(wishes_remaining: 3)
+lamp.update(wishes_remaining: 1)
+
+jafar= Genie.create(name: "Jafar")
+jaf_lamp= Lamp.create(wishes_remaining: 3)
+jaf_lamp.update(genie: jafar)
+genie.update(lamp: nil)
 ```
