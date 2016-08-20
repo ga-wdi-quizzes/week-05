@@ -24,7 +24,10 @@ Demonstrate calling the method, passing in "young prince" as the argument.
 
 Write your code here:
 ```ruby
-# code here
+def offer_rose (person)
+  puts
+end
+"Would you take this rose" + offer_rose + "in exchange for giving an old beggar woman shelter from the bitter cold?"
 ```
 
 ### Question 2
@@ -47,7 +50,14 @@ add her to the list of guests in the castle.
 
 Write your code here:
 ```ruby
-# code here
+town = {
+  residents: ["Maurice", "Gaston"],
+  castle: {
+    num_rooms: 47,
+    residents: "Robby Benson",
+    guests: ["Belle"]
+  }
+}
 ```
 
 ### Question 3
@@ -55,10 +65,7 @@ Write your code here:
 Assume you have an array of strings representing friend's names:
 
 ```ruby
-friends = ["Chip Potts", "Cogsworth", "Lumière", "Mrs. Potts"]
-```
-
-Using `.each` AND string interpolation, produce output (using `puts`) like so:
+friends = ["Chip Potts", "Cogsworth", "Lumière", "Mrs. Potts"] interpolation, produce output (using `puts`) like so:
 
 ```
 Belle is friends with Chip Potts
@@ -66,10 +73,15 @@ Belle is friends with Cogsworth
 Belle is friends with Lumière
 Belle is friends with Mrs. Potts
 ```
+def
+  "Belle is friends with" + "friends[0]" + "."
+  "Belle is friends with" + "friends[1]" + "."
+  "Belle is friends with" + "friends[2]" + "."
+  "Belle is friends with" + "friends[3]" + "."
+end
+```
 
-Write your code here:
-```ruby
-# code here
+
 ```
 
 ## TDD and RSpec
@@ -79,9 +91,8 @@ Write your code here:
 Describe the differences between unit and functional testing. What type of testing is RSpec and why?
 
 Your answer:
-```text
+```Unit tests test out individual units, such as class methods within a function. Functional tests are written with the user's perspecitve in mind; they conform that the system does what hte user expects it to do, from end to end.  RSpec is the defacto testing framework of Ruby. We use it to make it easier to write tests. Moreover, it is a Domain Specific Language (solves problems within a specific domain). We can write live specifications about our code with it.
 
-Replace this with your answer
 ```
 
 ### Question 5
@@ -110,8 +121,7 @@ end
 ```
 
 Your answer:
-```text
-
+```“Describe” wraps a set of tests against one functionality or method. “Context” wraps a set of tests against one function under the same state.
 Replace this with your answer
 ```
 
@@ -128,7 +138,11 @@ entities (no need to draw an ERD):
 * Pet
 
 Your answer:
-```
+``` An Entity Relationship Diagram a tool used to visualize data and describe the data relating to the major entities that will exist in a program. We use them to plan out the creation of database table structures. Data is isolated from behavior.
+Person has_many Pets
+Pet belongs_to person
+Genie has_many Lamps
+Lamp belongs_to Genie
 Replace this with your answer
 ```
 
@@ -139,7 +153,9 @@ SQL database. If you need an example, you can use: people and wishes
 (one-to-many).
 
 Your answer:
-```
+``` A schema is a ruby file that defines the structure of an application's database. ActiveRecord keeps the schema up-to-date each time we run rake db:migrate.
+people has_many wishes
+wishes belongs_to people
 Replace this with your answer
 ```
 
@@ -165,5 +181,45 @@ relationships between the two are set up in Active Record.
 
 Write your code here:
 ```ruby
+class CreateLamp < ActiveRecord::Migration
+  def new
+    create_table :wishes do |t|
+        t.string :wish_1
+        t.string :wish_2
+        t.string :wish_3
+    end
+  end
+end
+
+genie has_many wishes
+wishes belongs_to genie
+
+class CreateGenie < ActiveRecord::Migration
+  def new
+    create_table :genie do |t|
+      t.string :name
+      t.string :wine_type
+    end
+  end
+end
+==========
+class CreateLamp < ActiveRecord::Migration
+  def change
+    create_table :lamp do |t|
+        t.string :wish_1
+    end
+  end
+end
+==========
+class CreateGenie < ActiveRecord::Migration
+  def new
+    create_table :Jafar do |t|
+        t.string :wish_1
+        t.string :wish_2
+        t.string :wish_3
+    end
+  end
+end
+
 # code here
 ```
